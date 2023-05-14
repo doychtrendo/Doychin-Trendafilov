@@ -2,20 +2,20 @@ import java.time.LocalDate;
 
 public class BoardItem {
 
-    //  FIELDS
+    //FIELDS
     public String title;
     public LocalDate dueDate;
     public Status status;
 
 
-    //  CONSTRUCTOR
+    //CONSTRUCTOR
     public BoardItem(String title, LocalDate dueDate) {
         this.title = title;
         this.dueDate = dueDate;
         this.status = Status.Open;
     }
 
-    //  GETTERS AND SETTERS
+    //GETTERS AND SETTERS
     public void setTitle(String title) {
         if (title != null && !title.isEmpty()) {
             int titleLength = title.length();
@@ -24,7 +24,7 @@ public class BoardItem {
                 return;
             }
         }
-        System.out.println("Title length should be between 5-30.");
+        System.out.println("Title length should be between 5-30!");
     }
 
     public void setDueDate(LocalDate dueDate) {
@@ -36,7 +36,7 @@ public class BoardItem {
     }
 
 
-    //  ENUM STATUS
+    //ENUM STATUS
     enum Status {
         Open, ToDo, InProgress, Done, Verified;
 
@@ -57,18 +57,18 @@ public class BoardItem {
         }
     }
 
-    //  METHODS
+    //METHODS
     public void revertStatus() {
-        Status prevStatus = status.previous();
-        if (prevStatus != null) {
-            status = prevStatus;
+        Status previous = status.previous();
+        if (previous != null) {
+            status = previous;
         }
     }
 
     public void advanceStatus() {
-        Status nextStatus = status.next();
-        if (nextStatus != null) {
-            status = nextStatus;
+        Status next = status.next();
+        if (next != null) {
+            status = next;
         }
     }
     public String viewInfo() {
