@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Boardd {
+public class Board {
     public static final List<BoardItem> items = new ArrayList<>();
 
     //CONSTRUCTOR
