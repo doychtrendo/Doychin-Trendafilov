@@ -2,62 +2,31 @@ import java.time.LocalDate;
 
 public class BoardItem {
 
-    //FIELDS
     public String title;
-    public LocalDate dueDate;
+    LocalDate dueDate;
     public Status status;
 
-
-    //CONSTRUCTOR
-    public BoardItem(String title, LocalDate dueDate) {
+    public BoardItem (String title, LocalDate dueDate) {
         this.title = title;
         this.dueDate = dueDate;
         this.status = Status.Open;
     }
 
-    //GETTERS AND SETTERS
     public void setTitle(String title) {
-        if (title != null && !title.isEmpty()) {
-            int titleLength = title.length();
-            if (titleLength >= 5 && titleLength <= 30) {
-                this.title = title;
-                return;
-            }
+        if (title == null || title.length() <5 || title.length() > 30) {
+            throw new IllegalArgumentException("Title length should be between 5-30!");
         }
-        System.out.println("Title length should be between 5-30!");
+        this.title = title;
     }
+
 
     public void setDueDate(LocalDate dueDate) {
-        if (dueDate != null && !dueDate.isBefore(LocalDate.now())) {
-            this.dueDate = dueDate;
-        } else {
-            System.out.println("Due date cannot be in the past!");
+        if (dueDate.isBefore(LocalDate.now())) {
+            throw new IllegalArgumentException("Due date cannot be in the past!");
         }
+        this.dueDate = dueDate;
     }
 
-
-    //ENUM STATUS
-    enum Status {
-        Open, ToDo, InProgress, Done, Verified;
-
-        public Status next() {
-            int nextIndex = ordinal() + 1;
-            if (nextIndex >= Status.values().length) {
-                return null;
-            }
-            return Status.values()[nextIndex];
-        }
-
-        public Status previous() {
-            int prevIndex = ordinal() - 1;
-            if (prevIndex < 0) {
-                return null;
-            }
-            return Status.values()[prevIndex];
-        }
-    }
-
-    //METHODS
     public void revertStatus() {
         Status previous = status.previous();
         if (previous != null) {
@@ -71,9 +40,9 @@ public class BoardItem {
             status = next;
         }
     }
+
     public String viewInfo() {
         return String.format("'%s', [%s | %s]", title, status, dueDate);
     }
-
 }
- 
+
