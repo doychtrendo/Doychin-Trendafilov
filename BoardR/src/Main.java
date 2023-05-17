@@ -2,22 +2,23 @@ import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
-        BoardItem item = new BoardItem("Registration doesn't work", LocalDate.now().plusDays(2));
+        BoardItem item = new BoardItem("Refactor this mess", LocalDate.now().plusDays(2));
+        item.setDueDate(item.getDueDate().plusYears(2));
+        item.setTitle("Not that important");
+        item.revertStatus();
         item.advanceStatus();
-        BoardItem anotherItem = new BoardItem("Encrypt user data", LocalDate.now().plusDays(10));
+        item.revertStatus();
 
-        Board.items.add(item);
-        Board.items.add(anotherItem);
+        item.displayHistory();
 
-        Board.items.add(item);
-        Board.items.add(anotherItem);
+        System.out.println("\n--------------\n");
 
-        for (BoardItem boardItem : Board.items) {
-            boardItem.advanceStatus();
-        }
-
-        for (BoardItem boardItem : Board.items) {
-            System.out.println(boardItem.viewInfo());
-        }
+        BoardItem anotherItem = new BoardItem("Don't refactor anything",  LocalDate.now().plusDays(10));
+        anotherItem.advanceStatus();
+        anotherItem.advanceStatus();
+        anotherItem.advanceStatus();
+        anotherItem.advanceStatus();
+        anotherItem.advanceStatus();
+        anotherItem.displayHistory();
     }
 }

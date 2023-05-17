@@ -1,5 +1,6 @@
 public enum Status {
     Open, ToDo, InProgress, Done, Verified;
+
     public Status next() {
         int nextIndex = ordinal() + 1;
         if (nextIndex >= values().length) {
