@@ -1,63 +1,63 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.List;
 
 public class BoardItem {
-
-
     //FIELDS
     private String title;
-    LocalDate dueDate;
+    private LocalDate dueDate;
     private Status status;
-    public List<EventLog> eventHistory;
-
+    private final ArrayList<EventLog> eventHistory = new ArrayList<>();
 
     //CONSTRUCTOR
-    public BoardItem (String title, LocalDate dueDate) {
-        this.title = title;
-        this.dueDate = dueDate;
+    public BoardItem(String title, LocalDate dueDate) {
+        setTitle(title);
+        setDueDate(dueDate);
         this.status = Status.Open;
-        this.eventHistory = new ArrayList<>();
+        logEvent("Item created: '" + this.title + "', [" + this.status + " | " + this.dueDate + "]");
     }
 
 
-    //GETTERS - always public
-    public String getTitle() {
-        return title;
-    }
+    //GETTERS
 
     public LocalDate getDueDate() {
         return dueDate;
     }
 
-    public Status getStatus() {
-        return status;
-    }
 
-
-    //SETTERS - always private
+    //SETTERS
     public void setTitle(String title) {
-        if (title == null || title.length() <5 || title.length() > 30) {
+        if (title == null || title.length() < 5 || title.length() > 30) {
             throw new IllegalArgumentException("Title length should be between 5-30!");
         }
-        this.eventHistory.add(new EventLog("Title changed from " + this.title + " to " + title));
+        if (this.title != null) {
+            logEvent("Title changed from " + this.title + " to " + title);
+        }
         this.title = title;
     }
-
 
     public void setDueDate(LocalDate dueDate) {
         if (dueDate.isBefore(LocalDate.now())) {
             throw new IllegalArgumentException("Due date cannot be in the past!");
         }
+        if (this.dueDate != null) {
+            logEvent("DueDate changed from " + this.dueDate + " to " + dueDate);
+        }
         this.dueDate = dueDate;
     }
 
+    private void logEvent(String message) {
+        EventLog eventLog = new EventLog("[" + LocalDate.now() + "] " + message);
+        eventHistory.add(eventLog);
+    }
 
     //METHODS
     public void revertStatus() {
         Status previous = status.previous();
         if (previous != null) {
             status = previous;
+            logEvent("Status changed from " + status.next() + " to " + status);
+        } else {
+            logEvent("Can't revert, already at " + status);
         }
     }
 
@@ -65,6 +65,9 @@ public class BoardItem {
         Status next = status.next();
         if (next != null) {
             status = next;
+            logEvent("Status changed from " + status.previous() + " to " + status);
+        } else {
+            logEvent("Can't advance, already at " + status);
         }
     }
 
@@ -73,14 +76,12 @@ public class BoardItem {
     }
 
     public String displayHistory() {
-        StringBuilder sb = new StringBuilder();
+        StringBuilder stringBuilder = new StringBuilder();
         for (EventLog event : eventHistory) {
-            sb.append(event.viewInfo()).append("\n");
+            stringBuilder.append(event.viewInfo()).append("\n");
         }
 
-        System.out.println(sb.toString());
-        return sb.toString();
+        System.out.println(stringBuilder);
+        return stringBuilder.toString();
     }
 }
-
-
