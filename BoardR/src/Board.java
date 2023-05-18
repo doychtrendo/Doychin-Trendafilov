@@ -1,37 +1,21 @@
-
 import java.util.ArrayList;
+import java.util.List;
 
 public class Board {
-    private ArrayList<BoardItem> items;
+    private final List<BoardItem> items;
 
     public Board() {
-        int totalItems = 0;
-        items = new ArrayList<>();
-    }
-
-    public ArrayList<BoardItem> getItems() {
-        return items;
-    }
-
-    public void setItems(ArrayList<BoardItem> items) {
-        this.items = items;
+        this.items = new ArrayList<>();
     }
 
     public void addItem(BoardItem item) {
-        if (!items.contains(item)) {
-            items.add(item);
+        if (items.contains(item)) {
+            throw new IllegalArgumentException("Item already in the list");
         }
-        throw new IllegalArgumentException("Item already in the list");
+        items.add(item);
     }
 
     public int totalItems() {
         return items.size();
     }
 }
-
-
-//make the list private
-//create method void аddItem(BoardItem item) adds to the list of items inside the Board
-//in the method do a check if they already exist using contains()
-//how many items we have in the board - add int totalItems - returns the count of items inside the Board.
-//addItem() method should throw an IllegalArgumentException when a duplicate is added.

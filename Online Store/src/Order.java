@@ -13,7 +13,7 @@ public class Order {
     private String recipient;
     private Currency currency;
     private LocalDate deliveryOn;
-    private ArrayList<Product> items;
+    private final ArrayList<Product> items;
 
     //CONSTRUCTOR
     public Order (String recipient, Currency currency, LocalDate deliveryOn) {

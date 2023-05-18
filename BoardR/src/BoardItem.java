@@ -2,6 +2,11 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class BoardItem {
+
+    //CONSTANTS
+    private static final int MIN_TITLE_LENGTH = 5;
+    private static final int MAX_TITLE_LENGTH = 30;
+
     //FIELDS
     private String title;
     private LocalDate dueDate;
@@ -16,26 +21,28 @@ public class BoardItem {
         logEvent("Item created: '" + this.title + "', [" + this.status + " | " + this.dueDate + "]");
     }
 
+    private void logEvent(String message) {
+        EventLog eventLog = new EventLog("[" + LocalDate.now() + "] " + message);
+        eventHistory.add(eventLog);
+    }
 
-    //GETTERS
+    //GETTERS AND SETTERS
+    public Status getStatus() {
+        return status;
+    }
 
+    private void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public ArrayList<EventLog> getEventHistory() {
+        return eventHistory;
+    }
     public LocalDate getDueDate() {
         return dueDate;
     }
 
-
-    //SETTERS
-    public void setTitle(String title) {
-        if (title == null || title.length() < 5 || title.length() > 30) {
-            throw new IllegalArgumentException("Title length should be between 5-30!");
-        }
-        if (this.title != null) {
-            logEvent("Title changed from " + this.title + " to " + title);
-        }
-        this.title = title;
-    }
-
-    public void setDueDate(LocalDate dueDate) {
+    void setDueDate(LocalDate dueDate) {
         if (dueDate.isBefore(LocalDate.now())) {
             throw new IllegalArgumentException("Due date cannot be in the past!");
         }
@@ -45,10 +52,19 @@ public class BoardItem {
         this.dueDate = dueDate;
     }
 
-    private void logEvent(String message) {
-        EventLog eventLog = new EventLog("[" + LocalDate.now() + "] " + message);
-        eventHistory.add(eventLog);
+    public String getTitle() {
+        return title;
     }
+    void setTitle(String title) {
+        if (title == null || title.length() < MIN_TITLE_LENGTH || title.length() > MAX_TITLE_LENGTH) {
+            throw new IllegalArgumentException("Title length should be between 5-30!");
+        }
+        if (this.title != null) {
+            logEvent("Title changed from " + this.title + " to " + title);
+        }
+        this.title = title;
+    }
+
 
     //METHODS
     public void revertStatus() {
