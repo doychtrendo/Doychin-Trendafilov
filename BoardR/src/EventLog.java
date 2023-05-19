@@ -2,21 +2,19 @@ import java.time.LocalDate;
 
 public class EventLog {
 
-
     //FIELDS
     private final String description;
     private final LocalDate timestamp;
 
 
     //CONSTRUCTOR
-    public EventLog (String description) {
+    public EventLog(String description) {
         this.description = description;
         this.timestamp = LocalDate.now();
     }
 
-    public EventLog () {
+    public EventLog() {
         this.description = getDescription();
-
         this.timestamp = LocalDate.now();
         if (timestamp.isBefore(LocalDate.now())) {
             throw new IllegalArgumentException("Due date cannot be in the past!");
