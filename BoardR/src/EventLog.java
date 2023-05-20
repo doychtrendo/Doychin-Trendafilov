@@ -1,22 +1,22 @@
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class EventLog {
 
     //FIELDS
     private final String description;
-    private final LocalDate timestamp;
+    private final LocalDateTime timestamp;
 
 
     //CONSTRUCTOR
     public EventLog(String description) {
         this.description = description;
-        this.timestamp = LocalDate.now();
+        this.timestamp = LocalDateTime.now();
     }
 
     public EventLog() {
         this.description = getDescription();
-        this.timestamp = LocalDate.now();
-        if (timestamp.isBefore(LocalDate.now())) {
+        this.timestamp = LocalDateTime.now();
+        if (timestamp.isBefore(LocalDateTime.now())) {
             throw new IllegalArgumentException("Due date cannot be in the past!");
         }
     }
@@ -31,7 +31,14 @@ public class EventLog {
 
     //METHODS
     public String viewInfo() {
-        return String.format("[%s] %s", timestamp, description);
+        return String.format("[%d-%s-%d %d:%d:%d] %s",
+                timestamp.getDayOfMonth(),
+                timestamp.getMonth(),
+                timestamp.getYear(),
+                timestamp.getHour(),
+                timestamp.getMinute(),
+                timestamp.getSecond(),
+                description);
     }
 
 }

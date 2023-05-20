@@ -14,14 +14,14 @@ public class BoardItem {
     private final ArrayList<EventLog> eventHistory = new ArrayList<>();
 
     //CONSTRUCTOR
-    public BoardItem(String title, LocalDate dueDate) {
+    public BoardItem(String title, LocalDate dueDate, Status status) {
         setTitle(title);
         setDueDate(dueDate);
-        this.status = Status.Open;
+        this.status = status;
         logEvent("Item created: '" + this.title + "', [" + this.status + " | " + this.dueDate + "]");
     }
 
-    private void logEvent(String message) {
+    void logEvent(String message) {
         EventLog eventLog = new EventLog("[" + LocalDate.now() + "] " + message);
         eventHistory.add(eventLog);
     }
@@ -101,3 +101,5 @@ public class BoardItem {
         return stringBuilder.toString();
     }
 }
+
+
