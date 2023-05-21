@@ -22,7 +22,7 @@ public class BoardItem {
     }
 
     void logEvent(String message) {
-        EventLog eventLog = new EventLog("[" + LocalDate.now() + "] " + message);
+        EventLog eventLog = new EventLog(message);
         eventHistory.add(eventLog);
     }
 
@@ -38,6 +38,7 @@ public class BoardItem {
     public ArrayList<EventLog> getEventHistory() {
         return eventHistory;
     }
+
     public LocalDate getDueDate() {
         return dueDate;
     }
@@ -55,6 +56,7 @@ public class BoardItem {
     public String getTitle() {
         return title;
     }
+
     void setTitle(String title) {
         if (title == null || title.length() < MIN_TITLE_LENGTH || title.length() > MAX_TITLE_LENGTH) {
             throw new IllegalArgumentException("Title length should be between 5-30!");

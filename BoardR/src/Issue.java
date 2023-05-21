@@ -21,7 +21,7 @@ public class Issue extends BoardItem {
         }
     }
 
-        @Override
+    @Override
     public void revertStatus() {
         super.revertStatus();
     }
@@ -41,5 +41,5 @@ public class Issue extends BoardItem {
         return super.displayHistory();
     }
 
-    }
+}
 

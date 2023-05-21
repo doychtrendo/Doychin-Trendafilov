@@ -7,8 +7,8 @@ public class Task extends BoardItem {
 
     private String assignee;
 
-    public Task(String title,String assignee, LocalDate dueDate){
-        super(title,dueDate,Status.ToDo);
+    public Task(String title, String assignee, LocalDate dueDate) {
+        super(title, dueDate, Status.ToDo);
         setAssignee(assignee);
     }
 
@@ -34,7 +34,6 @@ public class Task extends BoardItem {
     @Override
     public void advanceStatus() {
         super.advanceStatus();
-
     }
 
     @Override
