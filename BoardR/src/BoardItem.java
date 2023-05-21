@@ -3,17 +3,14 @@ import java.util.ArrayList;
 
 public class BoardItem {
 
-    //CONSTANTS
     private static final int MIN_TITLE_LENGTH = 5;
     private static final int MAX_TITLE_LENGTH = 30;
 
-    //FIELDS
     private String title;
     private LocalDate dueDate;
     private Status status;
     private final ArrayList<EventLog> eventHistory = new ArrayList<>();
 
-    //CONSTRUCTOR
     public BoardItem(String title, LocalDate dueDate, Status status) {
         setTitle(title);
         setDueDate(dueDate);
@@ -26,7 +23,6 @@ public class BoardItem {
         eventHistory.add(eventLog);
     }
 
-    //GETTERS AND SETTERS
     public Status getStatus() {
         return status;
     }
@@ -57,7 +53,7 @@ public class BoardItem {
         return title;
     }
 
-    void setTitle(String title) {
+    private void setTitle(String title) {
         if (title == null || title.length() < MIN_TITLE_LENGTH || title.length() > MAX_TITLE_LENGTH) {
             throw new IllegalArgumentException("Title length should be between 5-30!");
         }
@@ -67,8 +63,6 @@ public class BoardItem {
         this.title = title;
     }
 
-
-    //METHODS
     public void revertStatus() {
         Status previous = status.previous();
         if (previous != null) {

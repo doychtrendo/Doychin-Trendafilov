@@ -25,24 +25,4 @@ public class Task extends BoardItem {
         }
         this.assignee = assignee;
     }
-
-    @Override
-    public void revertStatus() {
-        super.revertStatus();
-    }
-
-    @Override
-    public void advanceStatus() {
-        super.advanceStatus();
-    }
-
-    @Override
-    public String viewInfo() {
-        return super.viewInfo();
-    }
-
-    @Override
-    public String displayHistory() {
-        return super.displayHistory();
-    }
 }
