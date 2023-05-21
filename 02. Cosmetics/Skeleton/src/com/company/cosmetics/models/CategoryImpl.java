@@ -15,7 +15,7 @@ public class CategoryImpl implements Category {
     private final List<Product> products;
 
     public CategoryImpl(String name) {
-        this.name = name;
+        setName(name);
         products = new ArrayList<>();
     }
 
