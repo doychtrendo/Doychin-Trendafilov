@@ -25,14 +25,10 @@ public class CreamImpl extends ProductBase implements Cream {
 
     @Override
     public String print() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("#Category: Creams\n");
-        sb.append(String.format("#%s %s%n", getName(), getBrand()));
-        sb.append(String.format(" #Price: $%.2f%n", getPrice()));
-        sb.append(String.format(" #Gender: %s%n", getGender()));
-        sb.append(String.format(" #Scent: %s%n", getScent()));
-        sb.append(" ===");
-
-        return sb.toString();
+        return String.format("#Category: Creams\n"
+                        + "%s"
+                        + " #Scent: %s\n"
+                        + " ===",
+                super.print(), scentType);
     }
 }

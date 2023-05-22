@@ -9,6 +9,9 @@ public class ProductBase implements Product {
     private static final int MAX_PRODUCT_NAME_LENGTH = 10;
     private static final int MIN_BRAND_NAME_LENGTH = 2;
     private static final int MAX_BRAND_NAME_LENGTH = 10;
+    public static final String PRODUCT_NAME_ERROR_MESSAGE = "Product's name should be between 3 and 10 symbols long.";
+    public static final String PRODUCT_BRAND_NAME_ERROR_MESSAGE = "Product's brand should be between 2 and 10 symbols long.";
+    public static final String NEGATIVE_PRICE_ERROR_MESSAGE = "Price cannot be negative.";
 
     private String name;
     private String brand;
@@ -29,7 +32,7 @@ public class ProductBase implements Product {
 
     private void setName(String name) {
         if (name == null || name.length() < MIN_PRODUCT_NAME_LENGTH || name.length() > MAX_PRODUCT_NAME_LENGTH) {
-            throw new IllegalArgumentException("Product's name should be between 3 and 10 symbols long.");
+            throw new IllegalArgumentException(PRODUCT_NAME_ERROR_MESSAGE);
         }
         this.name = name;
     }
@@ -41,7 +44,7 @@ public class ProductBase implements Product {
 
     private void setBrand(String brand) {
         if (brand == null || brand.length() < MIN_BRAND_NAME_LENGTH || brand.length() > MAX_BRAND_NAME_LENGTH) {
-            throw new IllegalArgumentException("Product's brand should be between 2 and 10 symbols long.");
+            throw new IllegalArgumentException(PRODUCT_BRAND_NAME_ERROR_MESSAGE);
         }
         this.brand = brand;
     }
@@ -53,7 +56,7 @@ public class ProductBase implements Product {
 
     private void setPrice(double price) {
         if (price < 0) {
-            throw new IllegalArgumentException("Price cannot be negative.");
+            throw new IllegalArgumentException(NEGATIVE_PRICE_ERROR_MESSAGE);
         }
         this.price = price;
     }
@@ -63,15 +66,15 @@ public class ProductBase implements Product {
         return gender;
     }
 
+
     @Override
     public String print() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(String.format("#Category: %s%n", getClass().getSimpleName()));
-        sb.append(String.format("#%s %s%n", getName(), getBrand()));
-        sb.append(String.format(" #Price: $%.2f%n", getPrice()));
-        sb.append(String.format(" #Gender: %s%n", getGender()));
-
-        return sb.toString();
+        return String.format(
+                "#%s " + "%s\n" + " #Price: $%.2f\n" + " #Gender: %s\n",
+                name,
+                brand,
+                price,
+                gender);
     }
 }
 

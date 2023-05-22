@@ -8,6 +8,8 @@ import java.util.List;
 
 public class ToothpasteImpl extends ProductBase implements Toothpaste {
 
+    public static final String INGREDIENTS_ERROR_MESSAGE = "Ingredients cannot be null.";
+
     private List<String> ingredients;
 
     public ToothpasteImpl(String name, String brand, double price, GenderType gender, List<String> ingredients) {
@@ -22,22 +24,18 @@ public class ToothpasteImpl extends ProductBase implements Toothpaste {
 
     private void setIngredients(List<String> ingredients) {
         if (ingredients == null) {
-            throw new IllegalArgumentException("Ingredients cannot be null.");
+            throw new IllegalArgumentException(INGREDIENTS_ERROR_MESSAGE);
         }
         this.ingredients = new ArrayList<>(ingredients);
     }
 
     @Override
     public String print() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("#Category: Toothpastes\n");
-        sb.append(String.format("#%s %s%n", getName(), getBrand()));
-        sb.append(String.format(" #Price: $%.2f%n", getPrice()));
-        sb.append(String.format(" #Gender: %s%n", getGender()));
-        sb.append(String.format(" #Ingredients: %s%n", getIngredients()));
-        sb.append(" ===");
-
-        return sb.toString();
+        return String.format("#Category: Toothpastes\n"
+                        + "%s"
+                        + " #Ingredients: %s\n"
+                        + " ===",
+                super.print(), getIngredients());
     }
 
 }
