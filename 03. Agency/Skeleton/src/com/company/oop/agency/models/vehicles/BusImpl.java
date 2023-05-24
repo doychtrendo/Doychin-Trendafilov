@@ -4,10 +4,10 @@ import com.company.oop.agency.models.vehicles.contracts.Bus;
 
 public class BusImpl extends BaseVehicle implements Bus {
 
-    public static final int PASSENGER_MIN_VALUE = 10;
-    public static final int PASSENGER_MAX_VALUE = 50;
-    public static final double PRICE_MIN_VALUE = 0.1;
-    public static final double PRICE_MAX_VALUE = 2.5;
+    private static final int PASSENGER_MIN_VALUE = 10;
+    private static final int PASSENGER_MAX_VALUE = 50;
+    private static final double PRICE_MIN_VALUE = 0.1;
+    private static final double PRICE_MAX_VALUE = 2.5;
 
     private int id;
 
@@ -24,7 +24,7 @@ public class BusImpl extends BaseVehicle implements Bus {
         return id;
     }
 
-    public void setId(int id) {
+    private void setId(int id) {
         this.id = id;
     }
 

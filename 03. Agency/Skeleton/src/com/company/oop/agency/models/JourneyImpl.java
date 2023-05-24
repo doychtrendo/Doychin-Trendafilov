@@ -6,14 +6,14 @@ import com.company.oop.agency.utils.ValidationHelper;
 
 public class JourneyImpl implements Journey {
 
-    public static final int START_LOCATION_MIN_LENGTH = 5;
-    public static final int START_LOCATION_MAX_LENGTH = 25;
-    public static final int DESTINATION_MIN_LENGTH = 5;
-    public static final int DESTINATION_MAX_LENGTH = 25;
+    private static final int START_LOCATION_MIN_LENGTH = 5;
+    private static final int START_LOCATION_MAX_LENGTH = 25;
+    private static final int DESTINATION_MIN_LENGTH = 5;
+    private static final int DESTINATION_MAX_LENGTH = 25;
     private static final String START_LOCATION_ERROR_MESSAGE = "The StartingLocation's length cannot be less than 5 or more than 25 symbols long.";
     private static final String DESTINATION_ERROR_MESSAGE = "The Destination's length cannot be less than 5 or more than 25 symbols long.";
-    public static final int DISTANCE_MIN_VALUE = 5;
-    public static final int DISTANCE_MAX_VALUE = 5000;
+    private static final int DISTANCE_MIN_VALUE = 5;
+    private static final int DISTANCE_MAX_VALUE = 5000;
     private static final String DISTANCE_ERROR_MESSAGE = "The Distance cannot be less than 5 or more than 5000 kilometers.";
 
     private int id;
