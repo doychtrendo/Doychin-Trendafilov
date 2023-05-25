@@ -11,5 +11,13 @@ public abstract class BaseVehicle {
         this.pricePerKilometer = pricePerKilometer;
         this.vehicleType = vehicleType;
     }
+
+    public String getAsString() {
+        return String.format(
+                "Passenger capacity: %d%n" +
+                        "Price per kilometer: %.2f%n" +
+                        "Vehicle type: %s%n",
+                passengerCapacity, pricePerKilometer, vehicleType);
+    }
 }
 

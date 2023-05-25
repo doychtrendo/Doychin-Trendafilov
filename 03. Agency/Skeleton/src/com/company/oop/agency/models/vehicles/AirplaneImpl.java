@@ -74,12 +74,9 @@ public class AirplaneImpl extends BaseVehicle implements Airplane {
 
     @Override
     public String getAsString() {
-        return String.format("Airplane ----%n" +
-                        "Passenger capacity: %d%n" +
-                        "Price per kilometer: %.2f%n" +
-                        "Vehicle type: %s%n" +
+        return String.format("Airplane ----%n%s" +
                         "Has free food: %s%n",
-                passengerCapacity, pricePerKilometer, vehicleType, hasFreeFood);
+                super.getAsString(), hasFreeFood);
     }
 
 }

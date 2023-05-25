@@ -63,10 +63,8 @@ public class BusImpl extends BaseVehicle implements Bus {
 
     @Override
     public String getAsString() {
-        return String.format("Bus ----%n" +
-                        "Passenger capacity: %d%n" +
-                        "Price per kilometer: %.2f%n" +
-                        "Vehicle type: %s%n",
-                passengerCapacity, pricePerKilometer, vehicleType);
+        return String.format("Bus ----%n%s", super.getAsString());
     }
+
+
 }

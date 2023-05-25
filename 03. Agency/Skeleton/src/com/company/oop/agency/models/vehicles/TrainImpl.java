@@ -79,11 +79,8 @@ public class TrainImpl extends BaseVehicle implements Train {
 
     @Override
     public String getAsString() {
-        return String.format("Train ----%n" +
-                        "Passenger capacity: %d%n" +
-                        "Price per kilometer: %.2f%n" +
-                        "Vehicle type: %s%n" +
+        return String.format("Train ----%n%s" +
                         "Carts amount: %d%n",
-                passengerCapacity, pricePerKilometer, vehicleType, carts);
+                super.getAsString(), carts);
     }
 }
