@@ -67,11 +67,11 @@ public class CarImpl extends BaseVehicle implements Car {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Car:\n")
-                .append(String.format("Make: %s%n", getMake()))
-                .append(String.format("Model: %s%n", getModel()))
-                .append(String.format("Wheels: %d%n", getWheels()))
-                .append(String.format("Price: $%.0f%n", getPrice()))
-                .append(String.format("Seats: %d%n", getSeats()));
+                .append("Make: ").append(getMake()).append("\n")
+                .append("Model: ").append(getModel()).append("\n")
+                .append("Wheels: ").append(getWheels()).append("\n")
+                .append("Price: $").append(String.format("%.0f", getPrice())).append("\n")
+                .append("Seats: ").append(getSeats()).append("\n");
         List<Comment> comments = getComments();
         if (comments.isEmpty()) {
             sb.append("--NO COMMENTS--");
@@ -87,3 +87,4 @@ public class CarImpl extends BaseVehicle implements Car {
     }
 
 }
+

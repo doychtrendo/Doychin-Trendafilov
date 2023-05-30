@@ -82,6 +82,7 @@ public class TruckImpl extends BaseVehicle implements Truck {
                 sb.append(comment)
                         .append("\n");
             }
+            sb.append("--COMMENTS--");
         }
         return sb.toString();
     }
