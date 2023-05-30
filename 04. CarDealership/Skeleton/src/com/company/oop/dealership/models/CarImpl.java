@@ -44,11 +44,7 @@ public class CarImpl extends BaseVehicle implements Car {
     }
 
     private void setSeats(int seats) {
-        ValidationHelpers.validateIntRange(
-                seats,
-                CAR_SEATS_MIN,
-                CAR_SEATS_MAX,
-                CAR_SEATS_ERR);
+        ValidationHelpers.validateIntRange(seats, CAR_SEATS_MIN, CAR_SEATS_MAX, CAR_SEATS_ERR);
         this.seats = seats;
     }
 

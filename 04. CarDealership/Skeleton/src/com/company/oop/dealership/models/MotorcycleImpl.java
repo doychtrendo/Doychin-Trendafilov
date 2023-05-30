@@ -44,11 +44,7 @@ public class MotorcycleImpl extends BaseVehicle implements Motorcycle {
     }
 
     private void setCategory(String category) {
-        ValidationHelpers.validateStringRange(
-                category,
-                CATEGORY_LEN_MIN,
-                CATEGORY_LEN_MAX,
-                CATEGORY_LEN_ERR);
+        ValidationHelpers.validateStringRange(category, CATEGORY_LEN_MIN, CATEGORY_LEN_MAX, CATEGORY_LEN_ERR);
         this.category = category;
     }
 

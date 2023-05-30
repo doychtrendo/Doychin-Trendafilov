@@ -45,12 +45,7 @@ public class TruckImpl extends BaseVehicle implements Truck {
     }
 
     private void setWeightCapacity(int weightCapacity) {
-        ValidationHelpers.validateIntRange(
-                weightCapacity,
-                WEIGHT_CAP_MIN,
-                WEIGHT_CAP_MAX,
-                WEIGHT_CAP_ERR
-        );
+        ValidationHelpers.validateIntRange(weightCapacity, WEIGHT_CAP_MIN, WEIGHT_CAP_MAX, WEIGHT_CAP_ERR);
         this.weightCapacity = weightCapacity;
     }
 

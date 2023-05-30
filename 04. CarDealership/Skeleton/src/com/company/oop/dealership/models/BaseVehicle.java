@@ -53,29 +53,17 @@ public abstract class BaseVehicle implements Vehicle, Priceable {
     }
 
     private void setMake(String make) {
-        ValidationHelpers.validateStringRange(
-                make,
-                MAKE_NAME_LEN_MIN,
-                MAKE_NAME_LEN_MAX,
-                MAKE_NAME_LEN_ERR);
+        ValidationHelpers.validateStringRange(make, MAKE_NAME_LEN_MIN, MAKE_NAME_LEN_MAX, MAKE_NAME_LEN_ERR);
         this.make = make;
     }
 
     private void setModel(String model) {
-        ValidationHelpers.validateStringRange(
-                model,
-                MODEL_NAME_LEN_MIN,
-                MODEL_NAME_LEN_MAX,
-                MODEL_NAME_LEN_ERR);
+        ValidationHelpers.validateStringRange(model, MODEL_NAME_LEN_MIN, MODEL_NAME_LEN_MAX, MODEL_NAME_LEN_ERR);
         this.model = model;
     }
 
     private void setPrice(double price) {
-        ValidationHelpers.validateDecimalRange(
-                price,
-                PRICE_VAL_MIN,
-                PRICE_VAL_MAX,
-                PRICE_VAL_ERR);
+        ValidationHelpers.validateDecimalRange(price, PRICE_VAL_MIN, PRICE_VAL_MAX, PRICE_VAL_ERR);
         this.price = price;
     }
 
