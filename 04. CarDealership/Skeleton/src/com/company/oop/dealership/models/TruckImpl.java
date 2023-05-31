@@ -5,7 +5,6 @@ import com.company.oop.dealership.models.contracts.Truck;
 import com.company.oop.dealership.models.enums.VehicleType;
 import com.company.oop.dealership.utils.ValidationHelpers;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static java.lang.String.format;
@@ -20,13 +19,11 @@ public class TruckImpl extends BaseVehicle implements Truck {
             WEIGHT_CAP_MAX);
 
     private int weightCapacity;
-    private final List<Comment> comments;
 
     public TruckImpl(String make, String model, double price, int weightCapacity) {
         super(make, model, price);
         getWheels();
         setWeightCapacity(weightCapacity);
-        this.comments = new ArrayList<>();
     }
 
     @Override
@@ -50,28 +47,10 @@ public class TruckImpl extends BaseVehicle implements Truck {
     }
 
     @Override
-    public List<Comment> getComments() {
-        return new ArrayList<>(comments);
-    }
-
-    @Override
-    public void addComment(Comment comment) {
-        comments.add(comment);
-    }
-
-    @Override
-    public void removeComment(Comment comment) {
-        comments.remove(comment);
-    }
-
-    @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Truck:\n")
-                .append("Make: ").append(getMake()).append("\n")
-                .append("Model: ").append(getModel()).append("\n")
-                .append("Wheels: ").append(getWheels()).append("\n")
-                .append("Price: $").append(String.format("%.0f", getPrice())).append("\n")
+                .append(super.toString())
                 .append("Weight Capacity: ").append(getWeightCapacity()).append("t").append("\n");
         List<Comment> comments = getComments();
         if (comments.isEmpty()) {

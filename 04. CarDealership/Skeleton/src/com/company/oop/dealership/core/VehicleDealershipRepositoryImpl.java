@@ -93,5 +93,4 @@ public class VehicleDealershipRepositoryImpl implements VehicleDealershipReposit
         return new CommentImpl(content, author);
     }
 
-
 }

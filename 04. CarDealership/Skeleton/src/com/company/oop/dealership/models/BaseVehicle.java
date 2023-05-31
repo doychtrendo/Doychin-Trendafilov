@@ -1,8 +1,12 @@
 package com.company.oop.dealership.models;
 
+import com.company.oop.dealership.models.contracts.Comment;
 import com.company.oop.dealership.models.contracts.Priceable;
 import com.company.oop.dealership.models.contracts.Vehicle;
 import com.company.oop.dealership.utils.ValidationHelpers;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static java.lang.String.format;
 
@@ -30,11 +34,13 @@ public abstract class BaseVehicle implements Vehicle, Priceable {
     private String make;
     private String model;
     private double price;
+    private final List<Comment> comments;
 
     public BaseVehicle(String make, String model, double price) {
         setMake(make);
         setModel(model);
         setPrice(price);
+        this.comments = new ArrayList<>();
     }
 
     @Override
@@ -50,6 +56,21 @@ public abstract class BaseVehicle implements Vehicle, Priceable {
     @Override
     public double getPrice() {
         return price;
+    }
+
+    @Override
+    public List<Comment> getComments() {
+        return new ArrayList<>(comments);
+    }
+
+    @Override
+    public void addComment(Comment comment) {
+        comments.add(comment);
+    }
+
+    @Override
+    public void removeComment(Comment comment) {
+        comments.remove(comment);
     }
 
     private void setMake(String make) {
@@ -71,9 +92,11 @@ public abstract class BaseVehicle implements Vehicle, Priceable {
     public String toString() {
         return String.format("Make: %s%n" +
                         "Model: %s%n" +
-                        "Price: $%.0f%n%n",
+                        "Wheels: %s%n" +
+                        "Price: $%.0f%n",
                 getMake(),
                 getModel(),
+                getWheels(),
                 getPrice());
     }
 
