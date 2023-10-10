@@ -5,6 +5,10 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/Web Services REST Assured - Homework/Skeleton/pom.xml" />
+        <option value="$PROJECT_DIR$/Selenium WebDriver I/pom.xml" />
+        <option value="$PROJECT_DIR$/Selenium WebDriver II Practice Homework/pom.xml" />
+        <option value="$PROJECT_DIR$/Test Automation Framework/pom.xml" />
+        <option value="$PROJECT_DIR$/Selenium WebDriver - Saucedemo/Selenium WebDriver I Practice Homework - Saucedemo/pom.xml" />
       </list>
     </option>
   </component>

@@ -1,0 +1,2 @@
+In case the pom.xml file doesn't load and there is no menu on the right hand side to load it:
+Right click on the pom file and choose "Add as a Maven Project"
