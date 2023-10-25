@@ -4,11 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BaordR/BaordR.iml" filepath="$PROJECT_DIR$/BaordR/BaordR.iml" />
       <module fileurl="file://$PROJECT_DIR$/BoardR/BoardR.iml" filepath="$PROJECT_DIR$/BoardR/BoardR.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ForumPost - OOP/ForumPost - OOP.iml" filepath="$PROJECT_DIR$/ForumPost - OOP/ForumPost - OOP.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Hackathon - Arrays/Hackathon - Arrays.iml" filepath="$PROJECT_DIR$/Hackathon - Arrays/Hackathon - Arrays.iml" />
       <module fileurl="file://$PROJECT_DIR$/MyRepo.iml" filepath="$PROJECT_DIR$/MyRepo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/OnlineStore/OnlineStore.iml" filepath="$PROJECT_DIR$/OnlineStore/OnlineStore.iml" />
-      <module fileurl="file://$PROJECT_DIR$/UserSystem  - Methods/UserSystem  - Methods.iml" filepath="$PROJECT_DIR$/UserSystem  - Methods/UserSystem  - Methods.iml" />
       <module fileurl="file://$PROJECT_DIR$/Workhop Cosmetics - OOP/Workhop Cosmetics - OOP.iml" filepath="$PROJECT_DIR$/Workhop Cosmetics - OOP/Workhop Cosmetics - OOP.iml" />
       <module fileurl="file://$PROJECT_DIR$/MyCode/BoardR/untitled/untitled.iml" filepath="$PROJECT_DIR$/MyCode/BoardR/untitled/untitled.iml" />
     </modules>
