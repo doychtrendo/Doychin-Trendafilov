@@ -15,10 +15,10 @@ public class BaseTest {
         UserActions.loadBrowser("jira.homePage");
     }
 
-//    @AfterAll
-//    public static void tearDown() {
-//        UserActions.quitDriver();
-//    }
+    @AfterAll
+    public static void tearDown() {
+        UserActions.quitDriver();
+    }
 
     @Test
     public void login() {
