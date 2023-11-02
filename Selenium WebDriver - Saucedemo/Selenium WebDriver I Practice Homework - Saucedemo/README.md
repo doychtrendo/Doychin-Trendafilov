@@ -61,8 +61,4 @@ Test Scenarios
 
 Technologies
 ------------
-
-*List the technologies, languages, and frameworks used.*
-
 -   Selenium
--   REST API
