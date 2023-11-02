@@ -9,8 +9,6 @@ This project contains automated test scripts for the Saucedemo application. It f
 Installation
 ------------
 
-*Details about how to set up and run the project.*
-
 1.  Clone the repository
 2.  Navigate to the project directory
 3.  Install dependencies
@@ -61,4 +59,5 @@ Test Scenarios
 
 Technologies
 ------------
+
 -   Selenium
