@@ -4,10 +4,22 @@ Automation Testing Repository
 Description
 -----------
 
-This repository contains coursework and projects from my QA studies at Telerik Academy Alpha. It includes multiple automation testing projects, each focusing on different aspects of web applications. The projects utilize tools such as Selenium WebDriver, REST Assured, and JIRA API to perform automated tests on various platforms.
+This repository contains coursework and projects from my QA studies at Telerik Academy Alpha. It includes multiple automation testing projects, each focusing on different aspects of web applications. The projects utilize tools such as Selenium WebDriver, REST Assured, and the JIRA API to perform automated tests on various platforms.
 
 Projects
 --------
+
+### JIRA API Automation Tests with REST Assured
+
+-   **Description**: Automates tasks in JIRA via the JIRA API v2 using REST Assured. Includes creating stories and bugs, setting priorities, and linking bugs to stories.
+-   **Technologies**: REST Assured, JIRA API v2
+-   **Directory**: `JiraApiRestTests`
+
+### JIRA Automation Tests with Selenium WebDriver
+
+-   **Description**: Automates tasks in JIRA using Selenium WebDriver and the Test Automation Framework with the Page Object Model (POM) design pattern. Includes creating stories and bugs, setting priorities, and linking bugs to stories.
+-   **Technologies**: Selenium WebDriver, Test Automation Framework
+-   **Directory**: `JiraSeleniumAutomationTests`
 
 ### Saucedemo Automation Tests
 
@@ -15,21 +27,15 @@ Projects
 -   **Technologies**: Selenium WebDriver
 -   **Directory**: `SaucedemoAutomationTests`
 
-### JIRA API Automation Tests
-
--   **Description**: Automates tasks in JIRA via the JIRA API using REST Assured. Includes creating stories and bugs, setting priorities, and linking bugs to stories.
--   **Technologies**: REST Assured, JIRA API v2
--   **Directory**: `JiraApiAutomationTests`
-
 ### Search Engine Automation Tests
 
--   **Description**: Automates test cases for validating search results on Bing and Google.
--   **Technologies**: Selenium WebDriver
+-   **Description**: Automates test cases for validating search results on Bing and Google, ensuring the accuracy and relevance of search results for specific queries.
+-   **Technologies**: Java, Selenium WebDriver, JUnit
 -   **Directory**: `SearchEngineAutomationTests`
 
 ### Test Automation Framework
 
--   **Description**: General test automation framework used for automating test cases for web applications like Bing and Trello.
+-   **Description**: General test automation framework used for automating test cases for web applications like Bing and Trello. Demonstrates functionalities such as search operations, board and card management, and user interactions.
 -   **Technologies**: Selenium WebDriver, JUnit
 -   **Directory**: `TestAutomationFramework`
 
