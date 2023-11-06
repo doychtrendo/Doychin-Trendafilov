@@ -2,13 +2,13 @@ package sausedemotests;
 
 import core.BaseTest;
 import org.example.BrowserTypes;
+import org.example.utils.Constants;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import utils.Constants;
 
 import java.time.Duration;
 
