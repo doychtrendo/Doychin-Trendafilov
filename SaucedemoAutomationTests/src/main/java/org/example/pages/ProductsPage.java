@@ -5,6 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class ProductsPage extends BasePage {
 
     public ProductsPage(WebDriver driver) {
@@ -51,6 +54,21 @@ public class ProductsPage extends BasePage {
     public void navigateBackToProducts() {
         WebElement backToProductsButton = driver.findElement(By.id("back-to-products"));
         backToProductsButton.click();
+    }
+
+    public int getNumberOfItemsInCart() {
+        List<WebElement> items = driver.findElements(By.className("inventory_item_name"));
+        return items.size();
+    }
+
+    public List<String> getProductTitlesInCart() {
+        List<WebElement> items = driver.findElements(By.className("inventory_item_name"));
+        return items.stream().map(WebElement::getText).collect(Collectors.toList());
+    }
+
+    public List<String> getProductPricesInCart() {
+        List<WebElement> prices = driver.findElements(By.className("inventory_item_price"));
+        return prices.stream().map(WebElement::getText).collect(Collectors.toList());
     }
 
 }
