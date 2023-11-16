@@ -12,7 +12,7 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
-    public void logIn(String username, String pass) {
+    public void login(String username, String pass) {
         WebElement usernameInput = driver.findElement(By.xpath(Constants.USERNAME_INPUT));
         WebElement passwordInput = driver.findElement(By.xpath(Constants.PASSWORD_INPUT));
         WebElement loginButton = driver.findElement(By.xpath(Constants.LOGIN_BUTTON));
@@ -22,7 +22,7 @@ public class LoginPage extends BasePage {
         loginButton.click();
     }
 
-    public void logOut() {
+    public void logout() {
         WebElement burgerMenu = driver.findElement(By.id("react-burger-menu-btn"));
         burgerMenu.click();
 

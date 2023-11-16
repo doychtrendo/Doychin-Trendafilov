@@ -22,7 +22,7 @@ public class LoginTests extends BaseTest {
     @AfterEach
     public void teardown() {
         if (loginPage != null) {
-            loginPage.logOut();
+            loginPage.logout();
         }
 
         if (driver != null) {
@@ -30,11 +30,9 @@ public class LoginTests extends BaseTest {
         }
     }
 
-//test1
-
     @Test
     public void userAuthenticated_when_validCredentialsProvided() {
-        loginPage.logIn("standard_user", "secret_sauce");
+        loginPage.login("standard_user", "secret_sauce");
         String expectedUrl = "https://www.saucedemo.com/inventory.html";
         Assertions.assertEquals(expectedUrl, driver.getCurrentUrl(), "URL not as expected after login");
     }

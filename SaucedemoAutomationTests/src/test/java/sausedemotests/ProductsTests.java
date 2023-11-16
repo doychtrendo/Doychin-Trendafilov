@@ -19,7 +19,7 @@ public class ProductsTests extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         productsPage = new ProductsPage(driver);
         driver.get("https://www.saucedemo.com/");
-        loginPage.logIn("standard_user", "secret_sauce");
+        loginPage.login("standard_user", "secret_sauce");
     }
 
     @AfterEach
