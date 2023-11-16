@@ -11,7 +11,6 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BaseTest {
@@ -20,13 +19,13 @@ public class BaseTest {
     public static WebDriverWait wait;
 
     @AfterEach
-    public void afterTest() {
-        // close driver
-        driver.close();
+    public void afterEachTest() {
+        if (driver != null) {
+            driver.close();
+        }
     }
 
     protected static WebDriver startBrowser(BrowserTypes browserType) {
-        // setup browser
         switch (browserType) {
             case CHROME:
                 ChromeOptions chromeOptions = new ChromeOptions();
@@ -38,23 +37,22 @@ public class BaseTest {
                 EdgeOptions edgeOptions = new EdgeOptions();
                 return new EdgeDriver(edgeOptions);
         }
-
         return null;
     }
 
-    protected static void authenticateWithUser(String username, String pass) {
-        WebElement usernameInput = driver.findElement(By.xpath("//input[@data-test='username']"));
-        usernameInput.sendKeys(username);
-
-        WebElement password = driver.findElement(By.xpath("//input[@data-test='password']"));
-        password.sendKeys(pass);
-
-        WebElement loginButton = driver.findElement(By.xpath("//input[@data-test='login-button']"));
-        loginButton.click();
-
-        WebElement inventoryPageTitle = driver.findElement(By.xpath("//div[@class='app_logo']"));
-        wait.until(ExpectedConditions.visibilityOf(inventoryPageTitle));
-    }
+//    protected static void authenticateWithUser(String username, String pass) {
+//        WebElement usernameInput = driver.findElement(By.xpath("//input[@data-test='username']"));
+//        usernameInput.sendKeys(username);
+//
+//        WebElement password = driver.findElement(By.xpath("//input[@data-test='password']"));
+//        password.sendKeys(pass);
+//
+//        WebElement loginButton = driver.findElement(By.xpath("//input[@data-test='login-button']"));
+//        loginButton.click();
+//
+//        WebElement inventoryPageTitle = driver.findElement(By.xpath("//div[@class='app_logo']"));
+//        wait.until(ExpectedConditions.visibilityOf(inventoryPageTitle));
+//    }
 
     protected WebElement addProductToCart(String title) {
         return driver.findElement(By.xpath(String.format("//div[@class='inventory_item' and descendant::div[text()='%s']]", title)));

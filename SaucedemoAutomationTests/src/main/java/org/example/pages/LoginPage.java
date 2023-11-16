@@ -22,6 +22,14 @@ public class LoginPage extends BasePage {
         loginButton.click();
     }
 
+    public void logout() {
+        WebElement burgerMenu = driver.findElement(By.id("react-burger-menu-btn"));
+        burgerMenu.click();
+
+        WebElement logoutButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='logout_sidebar_link']")));
+        logoutButton.click();
+    }
+
     public boolean isLoginButtonVisible() {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Constants.LOGIN_BUTTON))).isDisplayed();
     }
