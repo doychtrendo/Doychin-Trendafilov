@@ -30,6 +30,7 @@ public class LoginTests extends BaseTest {
         }
     }
 
+//test
 
     @Test
     public void userAuthenticated_when_validCredentialsProvided() {
