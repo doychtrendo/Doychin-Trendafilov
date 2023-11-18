@@ -42,17 +42,15 @@ public class ProductsTests extends BaseTest {
         productsPage.navigateToShoppingCart();
 
         //assert the number of items in the cart
-        Assertions.assertEquals(2, productsPage.getNumberOfItemsInCart(), "Incorrect number of items in the cart");
+        productsPage.assertNumberOfItemsInCart(2);
 
         //assert that the cart contains the expected product titles
-        List<String> productTitles = productsPage.getProductTitlesInCart();
-        Assertions.assertTrue(productTitles.contains(Constants.BACKPACK_TITLE), "Backpack title not found in cart");
-        Assertions.assertTrue(productTitles.contains(Constants.SHIRT_TITLE), "Shirt title not found in cart");
+        productsPage.assertProductTitleInCart(Constants.BACKPACK_TITLE);
+        productsPage.assertProductTitleInCart(Constants.SHIRT_TITLE);
 
         //assert the prices of the products
-        List<String> productPrices = productsPage.getProductPricesInCart();
-        Assertions.assertTrue(productPrices.contains(Constants.BACKPACK_PRICE), "Backpack price not as expected");
-        Assertions.assertTrue(productPrices.contains(Constants.SHIRT_PRICE), "Shirt price not as expected");
+        productsPage.assertProductPriceInCart(Constants.BACKPACK_PRICE);
+        productsPage.assertProductPriceInCart(Constants.SHIRT_PRICE);
 
     }
 

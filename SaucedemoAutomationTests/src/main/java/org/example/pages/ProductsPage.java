@@ -1,5 +1,6 @@
 package org.example.pages;
 
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -71,4 +72,18 @@ public class ProductsPage extends BasePage {
         return prices.stream().map(WebElement::getText).collect(Collectors.toList());
     }
 
+    public void assertNumberOfItemsInCart(int expectedCount) {
+        int actualCount = getNumberOfItemsInCart();
+        Assertions.assertEquals(expectedCount, actualCount, "Incorrect number of items in the cart");
+    }
+
+    public void assertProductTitleInCart(String expectedTitle) {
+        List<String> productTitles = getProductTitlesInCart();
+        Assertions.assertTrue(productTitles.contains(expectedTitle), "Title not found in cart: " + expectedTitle);
+    }
+
+    public void assertProductPriceInCart(String expectedPrice) {
+        List<String> productPrices = getProductPricesInCart();
+        Assertions.assertTrue(productPrices.contains(expectedPrice), "Price not as expected: " + expectedPrice);
+    }
 }
