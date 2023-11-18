@@ -103,7 +103,9 @@ public class ProductsTests extends BaseTest {
         productsPage.navigateBackToProducts();
         productsPage.navigateToShoppingCart();
 
-        //to add assertions
+        //assert shopping cart is empty
+        var items = driver.findElements(By.className("inventory_item_name"));
+        Assertions.assertEquals(0, items.size(), "Items count not as expected");
     }
 
 }
