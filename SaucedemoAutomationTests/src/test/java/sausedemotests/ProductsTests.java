@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
@@ -60,33 +59,21 @@ public class ProductsTests extends BaseTest {
         productsPage.addProductToCart(Constants.BACKPACK_TITLE);
         productsPage.addProductToCart(Constants.SHIRT_TITLE);
         productsPage.navigateToShoppingCart();
-        productsPage.proceedToCheckout();
-        productsPage.fillShippingDetails("Jack", "Pott", "8888");
+        productsPage.checkoutWithValidInformation("Jack", "Pott", "8888");
+
+        //define expected titles and prices for assertions
+        List<String> expectedTitles = List.of(Constants.BACKPACK_TITLE, Constants.SHIRT_TITLE);
+        List<String> expectedPrices = List.of(Constants.BACKPACK_PRICE, Constants.SHIRT_PRICE);
+
+        //assert items at checkout
+        productsPage.assertItemsAtCheckout(expectedTitles, expectedPrices);
+
+        //calculate expected total price with tax
+        double expectedTotalWithTax = productsPage.calculateExpectedTotalWithTax();
+
+        //assert total price with tax
+        productsPage.assertTotalPriceWithTax(expectedTotalWithTax);
         productsPage.continueCheckout();
-
-        //assert the number of items
-        List<WebElement> itemsAtCheckout = driver.findElements(By.className("inventory_item_name"));
-        Assertions.assertEquals(2, itemsAtCheckout.size(), "Items count not as expected at checkout");
-
-        //assert that the correct items are displayed
-        Assertions.assertEquals(Constants.BACKPACK_TITLE, itemsAtCheckout.get(0).getText(), "Backpack title not as expected at checkout");
-        Assertions.assertEquals(Constants.SHIRT_TITLE, itemsAtCheckout.get(1).getText(), "Shirt title not as expected at checkout");
-
-        //assert the prices of the items
-        List<WebElement> pricesAtCheckout = driver.findElements(By.className("inventory_item_price"));
-        Assertions.assertEquals(2, pricesAtCheckout.size(), "Items price count not as expected at checkout");
-        Assertions.assertEquals(Constants.BACKPACK_PRICE, pricesAtCheckout.get(0).getText(), "Backpack price not as expected at checkout");
-        Assertions.assertEquals(Constants.SHIRT_PRICE, pricesAtCheckout.get(1).getText(), "Shirt price not as expected at checkout");
-
-        //assert the total price
-        double backpackPrice = Double.parseDouble(Constants.BACKPACK_PRICE.replace("$", ""));
-        double shirtPrice = Double.parseDouble(Constants.SHIRT_PRICE.replace("$", ""));
-        double subtotal = backpackPrice + shirtPrice;
-        double tax = subtotal * 0.08;
-        double totalWithTax = subtotal + tax;
-        String expectedTotal = String.format("Total: $%.2f", totalWithTax);
-        WebElement totalElement = driver.findElement(By.className("summary_total_label"));
-        Assertions.assertEquals(expectedTotal, totalElement.getText(), "Total price with tax not as expected at checkout");
     }
 
     @Test

@@ -1,11 +1,14 @@
 package org.example.pages;
 
+import org.example.utils.Constants;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -43,7 +46,8 @@ public class ProductsPage extends BasePage {
     }
 
     public void continueCheckout() {
-        WebElement continueButton = driver.findElement(By.id("continue"));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement continueButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("continue")));
         continueButton.click();
     }
 
@@ -85,5 +89,48 @@ public class ProductsPage extends BasePage {
     public void assertProductPriceInCart(String expectedPrice) {
         List<String> productPrices = getProductPricesInCart();
         Assertions.assertTrue(productPrices.contains(expectedPrice), "Price not as expected: " + expectedPrice);
+    }
+
+    public void checkoutWithValidInformation(String firstName, String lastName, String zip) {
+        proceedToCheckout();
+        fillShippingDetails(firstName, lastName, zip);
+        continueCheckout();
+    }
+
+    public void assertItemsAtCheckout(List<String> expectedTitles, List<String> expectedPrices) {
+        //assert the number of items
+        List<WebElement> itemsAtCheckout = driver.findElements(By.className("inventory_item_name"));
+        Assertions.assertEquals(expectedTitles.size(), itemsAtCheckout.size(), "Items count not as expected at checkout");
+
+        //assert that the correct items are displayed
+        for (int i = 0; i < expectedTitles.size(); i++) {
+            Assertions.assertEquals(expectedTitles.get(i), itemsAtCheckout.get(i).getText(),
+                    "Item title not as expected at checkout: " + expectedTitles.get(i));
+        }
+
+        //assert the prices of the items
+        List<WebElement> pricesAtCheckout = driver.findElements(By.className("inventory_item_price"));
+        Assertions.assertEquals(expectedPrices.size(), pricesAtCheckout.size(), "Items price count not as expected at checkout");
+
+        for (int i = 0; i < expectedPrices.size(); i++) {
+            Assertions.assertEquals(expectedPrices.get(i), pricesAtCheckout.get(i).getText(),
+                    "Item price not as expected at checkout: " + expectedPrices.get(i));
+        }
+    }
+
+    public double calculateExpectedTotalWithTax() {
+        double backpackPrice = Double.parseDouble(Constants.BACKPACK_PRICE.replace("$", ""));
+        double shirtPrice = Double.parseDouble(Constants.SHIRT_PRICE.replace("$", ""));
+        double subtotal = backpackPrice + shirtPrice;
+        double tax = subtotal * 0.08;
+        return subtotal + tax;
+    }
+
+    public void assertTotalPriceWithTax(double expectedTotalWithTax) {
+        //assert the total price with tax
+        WebElement totalElement = driver.findElement(By.className("summary_total_label"));
+        double actualTotalWithTax = Double.parseDouble(totalElement.getText().replace("Total: $", ""));
+        Assertions.assertEquals(expectedTotalWithTax, actualTotalWithTax,
+                "Total price with tax not as expected at checkout");
     }
 }
