@@ -7,6 +7,10 @@ public class Constants {
     public static final String BURGER_MENU = "#react-burger-menu-btn";
     public static final String LOGOUT_BUTTON = "//*[@id='logout_sidebar_link']";
 
+    public static final String BASE_URL = "https://www.saucedemo.com/";
+    public static final String STANDARD_USER_USERNAME = "standard_user";
+    public static final String STANDARD_USER_PASSWORD = "secret_sauce";
+
     public static final String BACKPACK_TITLE = "Sauce Labs Backpack";
     public static final String SHIRT_TITLE = "Sauce Labs Bolt T-Shirt";
     public static final String BACKPACK_PRICE = "$29.99";
