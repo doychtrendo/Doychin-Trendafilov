@@ -1,6 +1,7 @@
 package org.example.pages;
 
 import org.example.utils.Constants;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -29,5 +30,11 @@ public class LoginPage extends BasePage {
         WebElement logoutButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='logout_sidebar_link']")));
         logoutButton.click();
     }
+
+    public void assertUserIsAuthenticated() {
+        String expectedUrl = "https://www.saucedemo.com/inventory.html";
+        Assertions.assertEquals(expectedUrl, driver.getCurrentUrl(), "URL not as expected after login");
+    }
+
 
 }

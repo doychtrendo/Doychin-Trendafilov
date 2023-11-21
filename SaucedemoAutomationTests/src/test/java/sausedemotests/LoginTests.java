@@ -4,7 +4,6 @@ import core.BaseTest;
 import org.example.BrowserTypes;
 import org.example.pages.LoginPage;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -33,8 +32,7 @@ public class LoginTests extends BaseTest {
     @Test
     public void userAuthenticated_when_validCredentialsProvided() {
         loginPage.login("standard_user", "secret_sauce");
-        String expectedUrl = "https://www.saucedemo.com/inventory.html";
-        Assertions.assertEquals(expectedUrl, driver.getCurrentUrl(), "URL not as expected after login");
+        loginPage.assertUserIsAuthenticated();
     }
 
 }

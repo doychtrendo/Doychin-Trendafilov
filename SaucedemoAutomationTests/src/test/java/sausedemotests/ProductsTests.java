@@ -59,7 +59,7 @@ public class ProductsTests extends BaseTest {
         productsPage.navigateToShoppingCart();
         productsPage.checkoutWithValidInformation("Jack", "Pott", "8888");
 
-        //define expected titles and prices for assertions
+        //expected titles and prices for assertions
         List<String> expectedTitles = List.of(Constants.BACKPACK_TITLE, Constants.SHIRT_TITLE);
         List<String> expectedPrices = List.of(Constants.BACKPACK_PRICE, Constants.SHIRT_PRICE);
 
