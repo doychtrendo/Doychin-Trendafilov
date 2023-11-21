@@ -24,17 +24,15 @@ public class LoginPage extends BasePage {
     }
 
     public void logout() {
-        WebElement burgerMenu = driver.findElement(By.id("react-burger-menu-btn"));
+        WebElement burgerMenu = driver.findElement(By.cssSelector(Constants.BURGER_MENU));
         burgerMenu.click();
 
-        WebElement logoutButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='logout_sidebar_link']")));
+        WebElement logoutButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(Constants.LOGOUT_BUTTON)));
         logoutButton.click();
     }
 
     public void assertUserIsAuthenticated() {
-        String expectedUrl = "https://www.saucedemo.com/inventory.html";
-        Assertions.assertEquals(expectedUrl, driver.getCurrentUrl(), "URL not as expected after login");
+        Assertions.assertEquals(Constants.EXPECTED_URL_AFTER_LOGIN, driver.getCurrentUrl(), Constants.URL_NOT_AS_EXPECTED_MESSAGE);
     }
-
 
 }
