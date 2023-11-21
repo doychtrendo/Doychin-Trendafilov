@@ -6,10 +6,8 @@ import org.example.pages.LoginPage;
 import org.example.pages.ProductsPage;
 import org.example.utils.Constants;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 
 import java.util.List;
 
@@ -89,8 +87,7 @@ public class ProductsTests extends BaseTest {
         productsPage.navigateToShoppingCart();
 
         //assert shopping cart is empty
-        var items = driver.findElements(By.className("inventory_item_name"));
-        Assertions.assertEquals(0, items.size(), "Items count not as expected");
+        productsPage.assertShoppingCartIsEmpty();
     }
 
 }

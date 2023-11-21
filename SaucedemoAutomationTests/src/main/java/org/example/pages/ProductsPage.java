@@ -133,4 +133,10 @@ public class ProductsPage extends BasePage {
         Assertions.assertEquals(expectedTotalWithTax, actualTotalWithTax,
                 "Total price with tax not as expected at checkout");
     }
+
+    public void assertShoppingCartIsEmpty() {
+        var items = driver.findElements(By.className("inventory_item_name"));
+        Assertions.assertEquals(0, items.size(), "Items count not as expected");
+    }
+
 }
