@@ -20,25 +20,25 @@ public class ProductsPage extends BasePage {
 
     public void addProductToCart(String title) {
         WebElement product = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.xpath(String.format("//div[@class='inventory_item' and descendant::div[text()='%s']]", title))));
-        WebElement addToCartButton = product.findElement(By.className("btn_inventory"));
+                By.xpath(String.format(Constants.PRODUCT_TITLE_XPATH, title))));
+        WebElement addToCartButton = product.findElement(By.className(Constants.ADD_TO_CART_BUTTON_CLASS));
         addToCartButton.click();
     }
 
     public void navigateToShoppingCart() {
-        WebElement cartLink = driver.findElement(By.className("shopping_cart_link"));
+        WebElement cartLink = driver.findElement(By.className(Constants.SHOPPING_CART_LINK_CLASS));
         cartLink.click();
     }
 
     public void proceedToCheckout() {
-        WebElement checkoutButton = driver.findElement(By.id("checkout"));
+        WebElement checkoutButton = driver.findElement(By.id(Constants.CHECKOUT_BUTTON_ID));
         checkoutButton.click();
     }
 
     public void fillShippingDetails(String firstName, String lastName, String zip) {
-        WebElement firstNameInput = driver.findElement(By.id("first-name"));
-        WebElement lastNameInput = driver.findElement(By.id("last-name"));
-        WebElement postalCodeInput = driver.findElement(By.id("postal-code"));
+        WebElement firstNameInput = driver.findElement(By.id(Constants.FIRST_NAME_INPUT_ID));
+        WebElement lastNameInput = driver.findElement(By.id(Constants.LAST_NAME_INPUT_ID));
+        WebElement postalCodeInput = driver.findElement(By.id(Constants.POSTAL_CODE_INPUT_ID));
 
         firstNameInput.sendKeys(firstName);
         lastNameInput.sendKeys(lastName);
@@ -47,32 +47,32 @@ public class ProductsPage extends BasePage {
 
     public void continueCheckout() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement continueButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("continue")));
+        WebElement continueButton = wait.until(ExpectedConditions.elementToBeClickable(By.id(Constants.CONTINUE_BUTTON_ID)));
         continueButton.click();
     }
 
     public void finishCheckout() {
-        WebElement finishButton = driver.findElement(By.id("finish"));
+        WebElement finishButton = driver.findElement(By.id(Constants.FINISH_BUTTON_ID));
         finishButton.click();
     }
 
     public void navigateBackToProducts() {
-        WebElement backToProductsButton = driver.findElement(By.id("back-to-products"));
+        WebElement backToProductsButton = driver.findElement(By.id(Constants.BACK_TO_PRODUCTS_BUTTON_ID));
         backToProductsButton.click();
     }
 
     public int getNumberOfItemsInCart() {
-        List<WebElement> items = driver.findElements(By.className("inventory_item_name"));
+        List<WebElement> items = driver.findElements(By.className(Constants.ITEM_NAME_CLASS));
         return items.size();
     }
 
     public List<String> getProductTitlesInCart() {
-        List<WebElement> items = driver.findElements(By.className("inventory_item_name"));
+        List<WebElement> items = driver.findElements(By.className(Constants.ITEM_NAME_CLASS));
         return items.stream().map(WebElement::getText).collect(Collectors.toList());
     }
 
     public List<String> getProductPricesInCart() {
-        List<WebElement> prices = driver.findElements(By.className("inventory_item_price"));
+        List<WebElement> prices = driver.findElements(By.className(Constants.ITEM_PRICE_CLASS));
         return prices.stream().map(WebElement::getText).collect(Collectors.toList());
     }
 
@@ -99,7 +99,7 @@ public class ProductsPage extends BasePage {
 
     public void assertItemsAtCheckout(List<String> expectedTitles, List<String> expectedPrices) {
         //assert the number of items
-        List<WebElement> itemsAtCheckout = driver.findElements(By.className("inventory_item_name"));
+        List<WebElement> itemsAtCheckout = driver.findElements(By.className(Constants.ITEM_NAME_CLASS));
         Assertions.assertEquals(expectedTitles.size(), itemsAtCheckout.size(), "Items count not as expected at checkout");
 
         //assert that the correct items are displayed
@@ -109,7 +109,7 @@ public class ProductsPage extends BasePage {
         }
 
         //assert the prices of the items
-        List<WebElement> pricesAtCheckout = driver.findElements(By.className("inventory_item_price"));
+        List<WebElement> pricesAtCheckout = driver.findElements(By.className(Constants.ITEM_PRICE_CLASS));
         Assertions.assertEquals(expectedPrices.size(), pricesAtCheckout.size(), "Items price count not as expected at checkout");
 
         for (int i = 0; i < expectedPrices.size(); i++) {
@@ -128,15 +128,14 @@ public class ProductsPage extends BasePage {
 
     public void assertTotalPriceWithTax(double expectedTotalWithTax) {
         //assert the total price with tax
-        WebElement totalElement = driver.findElement(By.className("summary_total_label"));
+        WebElement totalElement = driver.findElement(By.className(Constants.SUMMARY_TOTAL_LABEL_CLASS));
         double actualTotalWithTax = Double.parseDouble(totalElement.getText().replace("Total: $", ""));
         Assertions.assertEquals(expectedTotalWithTax, actualTotalWithTax,
                 "Total price with tax not as expected at checkout");
     }
 
     public void assertShoppingCartIsEmpty() {
-        var items = driver.findElements(By.className("inventory_item_name"));
+        var items = driver.findElements(By.className(Constants.ITEM_NAME_CLASS));
         Assertions.assertEquals(0, items.size(), "Items count not as expected");
     }
-
 }
