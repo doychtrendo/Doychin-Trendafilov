@@ -34,5 +34,16 @@ public class Constants {
     public static final String ITEM_NAME_CLASS = "inventory_item_name";
     public static final String ITEM_PRICE_CLASS = "inventory_item_price";
     public static final String SUMMARY_TOTAL_LABEL_CLASS = "summary_total_label";
+
+    // Error messages
+    public static final String INCORRECT_ITEMS_COUNT_ERROR = "Incorrect number of items in the cart";
+    public static final String TITLE_NOT_FOUND_IN_CART_ERROR = "Title not found in cart: ";
+    public static final String PRICE_NOT_AS_EXPECTED_ERROR = "Price not as expected: ";
+    public static final String ITEMS_COUNT_NOT_AS_EXPECTED_ERROR = "Items count not as expected at checkout";
+    public static final String ITEM_TITLE_NOT_AS_EXPECTED_ERROR = "Item title not as expected at checkout: ";
+    public static final String ITEM_PRICE_NOT_AS_EXPECTED_ERROR = "Item price not as expected at checkout: ";
+    public static final String TOTAL_PRICE_WITH_TAX_NOT_AS_EXPECTED_ERROR = "Total price with tax not as expected at checkout";
+    public static final String SHOPPING_CART_NOT_EMPTY_ERROR = "Items count not as expected";
+
 }
 
