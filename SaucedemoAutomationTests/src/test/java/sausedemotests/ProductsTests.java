@@ -21,8 +21,8 @@ public class ProductsTests extends BaseTest {
         driver = startBrowser(BrowserTypes.CHROME);
         loginPage = new LoginPage(driver);
         productsPage = new ProductsPage(driver);
-        driver.get("https://www.saucedemo.com/");
-        loginPage.login("standard_user", "secret_sauce");
+        driver.get(Constants.BASE_URL);
+        loginPage.login(Constants.STANDARD_USER_USERNAME, Constants.STANDARD_USER_PASSWORD);
     }
 
     @AfterEach
@@ -57,7 +57,7 @@ public class ProductsTests extends BaseTest {
         productsPage.addProductToCart(Constants.BACKPACK_TITLE);
         productsPage.addProductToCart(Constants.SHIRT_TITLE);
         productsPage.navigateToShoppingCart();
-        productsPage.checkoutWithValidInformation("Jack", "Pott", "8888");
+        productsPage.checkoutWithValidInformation(Constants.USER_FIRST_NAME, Constants.USER_LAST_NAME, Constants.USER_ZIP_CODE);
 
         //expected titles and prices for assertions
         List<String> expectedTitles = List.of(Constants.BACKPACK_TITLE, Constants.SHIRT_TITLE);
@@ -80,7 +80,7 @@ public class ProductsTests extends BaseTest {
         productsPage.addProductToCart(Constants.SHIRT_TITLE);
         productsPage.navigateToShoppingCart();
         productsPage.proceedToCheckout();
-        productsPage.fillShippingDetails("Jack", "Pott", "8888");
+        productsPage.fillShippingDetails(Constants.USER_FIRST_NAME, Constants.USER_LAST_NAME, Constants.USER_ZIP_CODE);
         productsPage.continueCheckout();
         productsPage.finishCheckout();
         productsPage.navigateBackToProducts();

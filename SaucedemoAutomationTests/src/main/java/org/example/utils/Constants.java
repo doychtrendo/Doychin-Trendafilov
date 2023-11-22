@@ -1,26 +1,35 @@
 package org.example.utils;
 
 public class Constants {
+
+    //login page locators
     public static final String USERNAME_INPUT = "//input[@data-test='username']";
     public static final String PASSWORD_INPUT = "//input[@data-test='password']";
     public static final String LOGIN_BUTTON = "//input[@data-test='login-button']";
     public static final String BURGER_MENU = "#react-burger-menu-btn";
     public static final String LOGOUT_BUTTON = "//*[@id='logout_sidebar_link']";
 
+    //user data
+    public static final String USER_FIRST_NAME = "Jack";
+    public static final String USER_LAST_NAME = "Pott";
+    public static final String USER_ZIP_CODE = "8888";
+
+    //general constants
     public static final String BASE_URL = "https://www.saucedemo.com/";
     public static final String STANDARD_USER_USERNAME = "standard_user";
     public static final String STANDARD_USER_PASSWORD = "secret_sauce";
+    public static final String EXPECTED_URL_AFTER_LOGIN = "https://www.saucedemo.com/inventory.html";
+    public static final String URL_NOT_AS_EXPECTED_MESSAGE = "URL not as expected after login";
 
+    //product titles
     public static final String BACKPACK_TITLE = "Sauce Labs Backpack";
     public static final String SHIRT_TITLE = "Sauce Labs Bolt T-Shirt";
+
+    //product prices
     public static final String BACKPACK_PRICE = "$29.99";
     public static final String SHIRT_PRICE = "$15.99";
 
-    public static final String EXPECTED_URL_AFTER_LOGIN = "https://www.saucedemo.com/inventory.html";
-
-    public static final String URL_NOT_AS_EXPECTED_MESSAGE = "URL not as expected after login";
-
-    // ProductsPage locators
+    //ProductsPage locators
     public static final String PRODUCT_TITLE_XPATH = "//div[@class='inventory_item' and descendant::div[text()='%s']]";
     public static final String ADD_TO_CART_BUTTON_CLASS = "btn_inventory";
     public static final String SHOPPING_CART_LINK_CLASS = "shopping_cart_link";
@@ -35,7 +44,7 @@ public class Constants {
     public static final String ITEM_PRICE_CLASS = "inventory_item_price";
     public static final String SUMMARY_TOTAL_LABEL_CLASS = "summary_total_label";
 
-    // Error messages
+    //error messages
     public static final String INCORRECT_ITEMS_COUNT_ERROR = "Incorrect number of items in the cart";
     public static final String TITLE_NOT_FOUND_IN_CART_ERROR = "Title not found in cart: ";
     public static final String PRICE_NOT_AS_EXPECTED_ERROR = "Price not as expected: ";
@@ -46,4 +55,3 @@ public class Constants {
     public static final String SHOPPING_CART_NOT_EMPTY_ERROR = "Items count not as expected";
 
 }
-
