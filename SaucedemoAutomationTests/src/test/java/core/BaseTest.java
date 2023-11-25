@@ -35,7 +35,7 @@ public class BaseTest {
                 return new FirefoxDriver(firefoxOptions);
             case EDGE:
                 EdgeOptions edgeOptions = new EdgeOptions();
-                 edgeOptions.addArguments("--headless");
+                edgeOptions.addArguments("--headless");
                 return new EdgeDriver(edgeOptions);
         }
         return null;
