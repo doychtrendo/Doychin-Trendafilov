@@ -19,7 +19,7 @@ public class BaseTest {
     @AfterEach
     public void teardown() {
         if (driver != null) {
-            driver.close();
+            driver.quit();
         }
     }
 
@@ -27,16 +27,17 @@ public class BaseTest {
         switch (browserType) {
             case CHROME:
                 ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--headless");
                 return new ChromeDriver(chromeOptions);
             case FIREFOX:
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
+                firefoxOptions.addArguments("--headless");
                 return new FirefoxDriver(firefoxOptions);
             case EDGE:
                 EdgeOptions edgeOptions = new EdgeOptions();
+                 edgeOptions.addArguments("--headless");
                 return new EdgeDriver(edgeOptions);
         }
         return null;
     }
-
-
 }
