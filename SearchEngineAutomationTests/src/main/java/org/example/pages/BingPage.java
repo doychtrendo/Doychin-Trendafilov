@@ -13,7 +13,7 @@ public class BingPage extends BasePage {
     }
 
     public void navigateToBing() {
-        driver.get("https://www.bing.com");
+        driver.get(Constants.BING_URL);
     }
 
     public void acceptConsent() {

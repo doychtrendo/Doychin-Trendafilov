@@ -1,5 +1,6 @@
 package org.example.pages;
 
+import org.example.utils.Constants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,19 +13,19 @@ public class GooglePage extends BasePage {
     }
 
     public void navigateToGoogle() {
-        driver.get("https://www.google.com");
+        driver.get(Constants.GOOGLE_URL);
     }
 
     public void acceptConsent() {
-        WebElement acceptButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@id='L2AGLb']")));
+        WebElement acceptButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(Constants.GOOGLE_ACCEPT_BUTTON_XPATH)));
         acceptButton.click();
     }
 
     public void search(String searchTerm) {
-        WebElement searchField = driver.findElement(By.xpath("//textarea[@type='search']"));
+        WebElement searchField = driver.findElement(By.xpath(Constants.GOOGLE_SEARCH_FIELD_XPATH));
         searchField.sendKeys(searchTerm);
 
-        WebElement searchButton = driver.findElement(By.xpath("(//input[@type='submit' and @name='btnK'])[2]"));
+        WebElement searchButton = driver.findElement(By.xpath(Constants.GOOGLE_SEARCH_BUTTON_XPATH));
         searchButton.click();
     }
 }

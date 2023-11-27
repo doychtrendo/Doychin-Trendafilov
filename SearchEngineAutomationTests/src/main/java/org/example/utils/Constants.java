@@ -2,6 +2,9 @@ package org.example.utils;
 
 public class Constants {
 
+    public static final String GOOGLE_URL = "https://www.google.com";
+    public static final String BING_URL = "https://www.bing.com";
+
     // Bing Page locators
     public static final String BING_SEARCH_FIELD_XPATH = "//*[@id='sb_form_q']";
     public static final String BING_SEARCH_BUTTON_XPATH = "//label[@for='sb_form_go']";
