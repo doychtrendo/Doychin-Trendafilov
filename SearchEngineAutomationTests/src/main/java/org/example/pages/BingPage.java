@@ -1,5 +1,6 @@
 package org.example.pages;
 
+import org.example.utils.Constants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,15 +17,15 @@ public class BingPage extends BasePage {
     }
 
     public void acceptConsent() {
-        WebElement acceptButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@id='bnp_btn_accept']")));
+        WebElement acceptButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(Constants.BING_ACCEPT_BUTTON_XPATH)));
         acceptButton.click();
     }
 
     public void search(String searchTerm) {
-        WebElement searchField = driver.findElement(By.xpath("//*[@id='sb_form_q']"));
+        WebElement searchField = driver.findElement(By.xpath(Constants.BING_SEARCH_FIELD_XPATH));
         searchField.sendKeys(searchTerm);
 
-        WebElement searchButton = driver.findElement(By.xpath("//label[@for='sb_form_go']"));
+        WebElement searchButton = driver.findElement(By.xpath(Constants.BING_SEARCH_BUTTON_XPATH));
         searchButton.click();
     }
 }
