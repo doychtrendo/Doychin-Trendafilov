@@ -8,6 +8,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import static org.example.utils.Constants.*;
+
 public class BingSearchByTermTest extends BaseTest {
 
     @Test
@@ -16,16 +18,13 @@ public class BingSearchByTermTest extends BaseTest {
         bingHomePage.navigateToBing();
         bingHomePage.acceptConsent();
 
-        String searchTerm = "Telerik Academy Alpha";
-        String expectedTitle = "IT Career Start in 6 Months - Telerik Academy Alpha";
+        bingHomePage.search(SEARCH_TERM);
 
-        bingHomePage.search(searchTerm);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(BING_FIRST_RESULT_XPATH)));
 
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//h2[@class=' b_topTitle']")));
-
-        WebElement firstResultTitleElement = driver.findElement(By.xpath("//h2[@class=' b_topTitle']"));
+        WebElement firstResultTitleElement = driver.findElement(By.xpath(BING_FIRST_RESULT_XPATH));
         String firstResultTitle = firstResultTitleElement.getText();
 
-        Assertions.assertEquals(expectedTitle, firstResultTitle, "Search result title does not match. Expected: " + expectedTitle + ", Actual: " + firstResultTitle);
+        Assertions.assertEquals(EXPECTED_TITLE, firstResultTitle, String.format(TITLE_NOT_MATCH_ERROR, EXPECTED_TITLE, firstResultTitle));
     }
 }
