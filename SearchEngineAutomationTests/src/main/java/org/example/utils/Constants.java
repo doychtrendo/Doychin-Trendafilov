@@ -16,6 +16,8 @@ public class Constants {
     public static final String GOOGLE_SEARCH_BUTTON_XPATH = "(//input[@type='submit' and @name='btnK'])[2]";
     public static final String GOOGLE_ACCEPT_BUTTON_XPATH = "//button[@id='L2AGLb']";
 
+    public static final String GOOGLE_FIRST_RESULT_XPATH = "(//a/h3)[1]";
+
     // Test data
     public static final String SEARCH_TERM = "Telerik Academy Alpha";
     public static final String EXPECTED_TITLE = "IT Career Start in 6 Months - Telerik Academy Alpha";

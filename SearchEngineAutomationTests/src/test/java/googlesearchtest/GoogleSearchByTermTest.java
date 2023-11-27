@@ -8,6 +8,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import static org.example.utils.Constants.*;
+
 public class GoogleSearchByTermTest extends BaseTest {
 
     @Test
@@ -16,16 +18,13 @@ public class GoogleSearchByTermTest extends BaseTest {
         googleHomePage.navigateToGoogle();
         googleHomePage.acceptConsent();
 
-        String searchTerm = "Telerik Academy Alpha";
-        String expectedTitle = "IT Career Start in 6 Months - Telerik Academy Alpha";
+        googleHomePage.search(SEARCH_TERM);
 
-        googleHomePage.search(searchTerm);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(GOOGLE_FIRST_RESULT_XPATH)));
 
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//a/h3)[1]")));
-
-        WebElement firstResultTitleElement = driver.findElement(By.xpath("(//a/h3)[1]"));
+        WebElement firstResultTitleElement = driver.findElement(By.xpath(GOOGLE_FIRST_RESULT_XPATH));
         String firstResultTitle = firstResultTitleElement.getText();
 
-        Assertions.assertEquals(expectedTitle, firstResultTitle, "Search result title does not match. Expected: " + expectedTitle + ", Actual: " + firstResultTitle);
+        Assertions.assertEquals(EXPECTED_TITLE, firstResultTitle, String.format(TITLE_NOT_MATCH_ERROR, EXPECTED_TITLE, firstResultTitle));
     }
 }
