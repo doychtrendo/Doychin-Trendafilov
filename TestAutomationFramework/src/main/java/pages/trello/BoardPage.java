@@ -2,6 +2,8 @@ package pages.trello;
 
 import org.openqa.selenium.WebDriver;
 
+import static com.telerikacademy.testframework.utils.Constants.*;
+
 public class BoardPage extends BaseTrelloPage {
 
     public BoardPage(WebDriver driver) {
@@ -9,54 +11,50 @@ public class BoardPage extends BaseTrelloPage {
     }
 
     public void addCardToList(String cardName) {
-        //find created board
-        actions.waitForElementClickable("(//div[@class='board-tile-details is-badged'])[1]");
-        actions.clickElement("(//div[@class='board-tile-details is-badged'])[1]");
+        // Find created board
+        actions.waitForElementClickable(TRELLO_BOARD_PAGE_CREATED_BOARD);
+        actions.clickElement(TRELLO_BOARD_PAGE_CREATED_BOARD);
 
+        // Find "Add Card" button and click
+        actions.waitForElementClickable(TRELLO_BOARD_PAGE_ADD_CARD_BUTTON);
+        actions.clickElement(TRELLO_BOARD_PAGE_ADD_CARD_BUTTON);
 
-        //find "Add Card" button and click
-        actions.waitForElementClickable("(//a[@data-testid='list-add-card-button'])[1]");
-        actions.clickElement("(//a[@data-testid='list-add-card-button'])[1]");
+        // Card name
+        actions.waitForElementPresent(TRELLO_BOARD_PAGE_CARD_COMPOSER_TEXTAREA);
+        actions.typeValueInField(cardName, TRELLO_BOARD_PAGE_CARD_COMPOSER_TEXTAREA);
 
-        //card name
-        actions.waitForElementPresent("//textarea[@data-testid='list-card-composer-textarea']");
-        actions.typeValueInField(cardName, "//textarea[@data-testid='list-card-composer-textarea']");
+        // Click "Submit"
+        actions.clickElement(TRELLO_BOARD_PAGE_SUBMIT_BUTTON);
 
-        //click "Submit"
-        actions.clickElement("(//input[@type='submit'])[1]");
-
-        //asser card is created
-        actions.waitForElementPresent("//a[@data-testid='trello-card']");
+        // Assert card is created
+        actions.waitForElementPresent(TRELLO_BOARD_PAGE_CREATED_CARD);
     }
 
     public void moveCardToList(String cardName, String listName) {
-        //find created board
-        actions.waitForElementClickable("(//div[@class='board-tile-details is-badged'])[1]");
-        actions.clickElement("(//div[@class='board-tile-details is-badged'])[1]");
+        // Find created board
+        actions.waitForElementClickable(TRELLO_BOARD_PAGE_CREATED_BOARD);
+        actions.clickElement(TRELLO_BOARD_PAGE_CREATED_BOARD);
 
-        //wait for the created card
-        actions.waitForElementPresent("//a[@data-testid='trello-card']");
+        // Wait for the created card
+        actions.waitForElementPresent(TRELLO_BOARD_PAGE_CREATED_CARD);
 
-        //drag source and drop
-        actions.selectOptionsFromDragAndDrop("//a[@data-testid='trello-card']", "(//div[@class='list js-list-content'])[2]");
+        // Drag source and drop
+        actions.selectOptionsFromDragAndDrop(TRELLO_BOARD_PAGE_CREATED_CARD, TRELLO_BOARD_PAGE_SECOND_LIST);
     }
 
-
     public void assertListExists(String listName) {
-        actions.waitForElementPresent("trello.boardPage.listByName", listName);
+        actions.waitForElementPresent(TRELLO_BOARD_PAGE_LIST_BY_NAME, listName);
     }
 
     public void assertAddListExists() {
-        actions.waitForElementPresent("trello.boardPage.listWrapper");
+        actions.waitForElementPresent(TRELLO_BOARD_PAGE_LIST_WRAPPER);
     }
 
     public void assertCardExists() {
-        actions.waitForElementPresent("//a[@data-testid='trello-card']");
+        actions.waitForElementPresent(TRELLO_BOARD_PAGE_CREATED_CARD);
     }
 
     public void assertCardIsMoved() {
-        actions.waitForElementPresent("//a[@data-testid='trello-card']");
+        actions.waitForElementPresent(TRELLO_BOARD_PAGE_CREATED_CARD);
     }
-
 }
-

@@ -17,14 +17,15 @@ public class Constants {
     public static final String TRELLO_LOGIN_PAGE_LOGIN_BUTTON = "trello.loginPage.loginButton";
     public static final String TRELLO_LOGIN_PAGE_LOGIN_SUBMIT_BUTTON = "trello.loginPage.loginSubmitButton";
 
-
     // Trello BoardPage Locators
+    public static final String TRELLO_BOARD_PAGE_SECOND_LIST = "(//div[@class='list js-list-content'])[2]";
     public static final String TRELLO_BOARD_PAGE_LIST_BY_NAME = "trello.boardPage.listByName";
     public static final String TRELLO_BOARD_PAGE_LIST_WRAPPER = "trello.boardPage.listWrapper";
     public static final String TRELLO_BOARD_PAGE_ADD_CARD_BUTTON = "trello.boardPage.addCardButton";
     public static final String TRELLO_BOARD_PAGE_CARD_NAME = "trello.boardPage.cardName";
     public static final String TRELLO_BOARD_PAGE_SUBMIT_NEW_CARD = "trello.boardPage.submitNewCard";
-    public static final String TRELLO_BOARD_PAGE_CARD_BY_NAME = "trello.boardPage.cardByName";
-
-
+    public static final String TRELLO_BOARD_PAGE_CARD_COMPOSER_TEXTAREA = "trello.boardPage.cardComposerTextarea";
+    public static final String TRELLO_BOARD_PAGE_SUBMIT_BUTTON = "trello.boardPage.submitButton";
+    public static final String TRELLO_BOARD_PAGE_CREATED_CARD = "trello.boardPage.createdCard";
+    public static final String TRELLO_BOARD_PAGE_CREATED_BOARD = "(//div[@class='board-tile-details is-badged'])[1]";
 }
