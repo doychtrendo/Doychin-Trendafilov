@@ -1,9 +1,8 @@
 package test.cases.bing;
 
+import org.junit.Test;
 import pages.bing.BingHomePage;
 import pages.bing.BingResultsPage;
-
-import org.junit.Test;
 
 import static com.telerikacademy.testframework.Utils.getUIMappingByKey;
 

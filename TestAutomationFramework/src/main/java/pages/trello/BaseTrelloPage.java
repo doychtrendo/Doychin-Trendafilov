@@ -1,7 +1,7 @@
 package pages.trello;
 
-import pages.base.BasePage;
 import org.openqa.selenium.WebDriver;
+import pages.base.BasePage;
 
 public abstract class BaseTrelloPage extends BasePage {
 

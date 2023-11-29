@@ -47,7 +47,6 @@ public class UserActions {
         element.sendKeys(value);
     }
 
-    //############# WAITS #########
     public void waitForElementVisible(String locatorKey, Object... arguments) {
         int defaultTimeout = Integer.parseInt(getConfigPropertyByKey("config.defaultTimeoutSeconds"));
 
@@ -60,7 +59,6 @@ public class UserActions {
         waitForElementToBeClickableUntilTimeout(locatorKey, defaultTimeout, arguments);
     }
 
-    //############# WAITS #########
     public void waitForElementPresent(String locator, Object... arguments) {
         // TODO: Implement the method
         // 1. Initialize Wait utility with default timeout from properties
