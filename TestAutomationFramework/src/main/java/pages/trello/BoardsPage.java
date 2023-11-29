@@ -2,7 +2,7 @@ package pages.trello;
 
 import org.openqa.selenium.WebDriver;
 
-import static com.telerikacademy.testframework.Utils.getUIMappingByKey;
+import static com.telerikacademy.testframework.utils.Constants.*;
 
 public class BoardsPage extends BaseTrelloPage {
 
@@ -11,56 +11,53 @@ public class BoardsPage extends BaseTrelloPage {
     }
 
     public void createBoard() {
-        String boardName = getUIMappingByKey("trello.boardName");
+        actions.waitForElementClickable(TRELLO_BOARDS_PAGE_MENU_BUTTON);
+        actions.clickElement(TRELLO_BOARDS_PAGE_MENU_BUTTON);
 
-        actions.waitForElementClickable("trello.header.create.menuButton");
-        actions.clickElement("trello.header.create.menuButton");
+        actions.waitForElementClickable(TRELLO_BOARDS_PAGE_CREATE_BOARD_DROPDOWN);
+        actions.clickElement(TRELLO_BOARDS_PAGE_CREATE_BOARD_DROPDOWN);
 
-        actions.waitForElementClickable("trello.header.createBoard.dropDownButton");
-        actions.clickElement("trello.header.createBoard.dropDownButton");
+        actions.waitForElementClickable(TRELLO_BOARDS_PAGE_TITLE_INPUT);
+        actions.typeValueInField(TRELLO_BOARD_NAME, TRELLO_BOARDS_PAGE_TITLE_INPUT);
 
-        actions.waitForElementClickable("trello.createBoard.titleInput");
-        actions.typeValueInField(boardName, "trello.createBoard.titleInput");
-
-        actions.waitForElementClickable("trello.create.board.submitButton");
-        actions.clickElement("trello.create.board.submitButton");
-
+        actions.waitForElementClickable(TRELLO_BOARDS_PAGE_CREATE_BUTTON);
+        actions.clickElement(TRELLO_BOARDS_PAGE_CREATE_BUTTON);
     }
 
     public void clickOnBoard(String boardName) {
-        actions.waitForElementVisible("trello.boardsPage.boardByTeamAndName", boardName);
-        actions.clickElement("trello.boardsPage.boardByTeamAndName", boardName);
+        actions.waitForElementVisible(TRELLO_BOARDS_PAGE_BOARD_BY_NAME, boardName);
+        actions.clickElement(TRELLO_BOARDS_PAGE_BOARD_BY_NAME, boardName);
     }
 
     public void deleteBoard() {
         //find created board
-        actions.waitForElementClickable("(//div[@class='board-tile-details is-badged'])[1]");
+        actions.waitForElementClickable(TRELLO_BOARDS_PAGE_DELETE_BOARD_BUTTON);
+        actions.clickElement(TRELLO_BOARDS_PAGE_DELETE_BOARD_BUTTON);
 
         //click
-        actions.clickElement("(//div[@class='board-tile-details is-badged'])[1]");
+        actions.clickElement(TRELLO_BOARDS_PAGE_DELETE_BOARD_BUTTON);
 
         //hover the container
-        actions.hoverOverElement("//*[@id='popover-boundary']/div/nav/div[1]/div/div/div[2]/div/div[3]/ul/div[2]/li[1]/a");
-        actions.waitForElementClickable("//button[@type='button' and @aria-label='Board actions menu']");
-        actions.clickElement("//button[@type='button' and @aria-label='Board actions menu']");
+        actions.hoverOverElement(TRELLO_BOARDS_PAGE_BOARD_ACTIONS_MENU);
+        actions.waitForElementClickable(TRELLO_BOARDS_PAGE_BOARD_ACTIONS_MENU);
+        actions.clickElement(TRELLO_BOARDS_PAGE_BOARD_ACTIONS_MENU);
 
         //close board
-        actions.waitForElementPresent("//button[@type='button' and @title='Close board']");
-        actions.clickElement("//button[@type='button' and @title='Close board']");
+        actions.waitForElementPresent(TRELLO_BOARDS_PAGE_CLOSE_BOARD_BUTTON);
+        actions.clickElement(TRELLO_BOARDS_PAGE_CLOSE_BOARD_BUTTON);
 
         //confirm action
-        actions.waitForElementPresent("//button[@type='button' and @title='Close']");
-        actions.clickElement("//button[@type='button' and @title='Close']");
+        actions.waitForElementPresent(TRELLO_BOARDS_PAGE_CONFIRM_CLOSE_BUTTON);
+        actions.clickElement(TRELLO_BOARDS_PAGE_CONFIRM_CLOSE_BUTTON);
 
         //wait delete form to appear
-        actions.waitForElementPresent("//h1[@data-testid='close-board-big-message']");
+        actions.waitForElementPresent(TRELLO_BOARDS_PAGE_CLOSE_BOARD_BIG_MESSAGE);
 
         //delete
-        actions.clickElement("//button[@data-testid='close-board-delete-board-button']");
-
+        actions.clickElement(TRELLO_BOARDS_PAGE_DELETE_CONFIRM_BUTTON);
     }
 
     public void assertBoardIsDeleted() {
-        actions.waitForElementNotPresent("trello.boardsPage.boardByTeamAndName", 10, "trello.boardPage.findBoard");
+        actions.waitForElementNotPresent(TRELLO_BOARDS_PAGE_BOARD_BY_NAME, 10, "trello.boardPage.findBoard");
     }
 }
