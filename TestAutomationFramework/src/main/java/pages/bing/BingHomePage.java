@@ -2,6 +2,7 @@ package pages.bing;
 
 import org.openqa.selenium.WebDriver;
 import pages.base.BasePage;
+import static com.telerikacademy.testframework.utils.Constants.*;
 
 public class BingHomePage extends BasePage {
 
@@ -10,15 +11,15 @@ public class BingHomePage extends BasePage {
     }
 
     public void enterSearchTerm(String term) {
-        actions.typeValueInField(term, "bing.homePage.searchInput");
+        actions.typeValueInField(term, BING_HOME_PAGE_SEARCH_INPUT);
     }
 
     public void searchAndSubmit(String term) {
         enterSearchTerm(term);
-        actions.clickElement("bing.homePage.searchButton");
+        actions.clickElement(BING_HOME_PAGE_SEARCH_BUTTON);
     }
 
     public void assertSearchInputVisible() {
-        actions.assertElementPresent("bing.homePage.searchInput");
+        actions.assertElementPresent(BING_HOME_PAGE_SEARCH_INPUT);
     }
 }
