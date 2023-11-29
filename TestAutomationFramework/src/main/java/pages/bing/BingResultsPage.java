@@ -2,6 +2,7 @@ package pages.bing;
 
 import org.openqa.selenium.WebDriver;
 import pages.base.BasePage;
+import static com.telerikacademy.testframework.utils.Constants.*;
 
 public class BingResultsPage extends BasePage {
 
@@ -10,7 +11,7 @@ public class BingResultsPage extends BasePage {
     }
 
     public void assertResultIsPresent(String resultTitle) {
-        actions.assertElementPresent("bing.resultsPage.firstResult");
-        actions.assertElementAttribute("bing.resultsPage.firstResult", "innerText", resultTitle);
+        actions.assertElementPresent(BING_RESULTS_PAGE_FIRST_RESULT);
+        actions.assertElementAttribute(BING_RESULTS_PAGE_FIRST_RESULT, "innerText", resultTitle);
     }
 }
