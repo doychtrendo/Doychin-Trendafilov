@@ -7,7 +7,7 @@ import static com.telerikacademy.testframework.utils.Constants.*;
 public class BoardPage extends BaseTrelloPage {
 
     public BoardPage(WebDriver driver) {
-        super(driver, "trello.boardPage");
+        super(driver, TRELLO_BOARD_PAGE);
     }
 
     public void addCardToList(String cardName) {

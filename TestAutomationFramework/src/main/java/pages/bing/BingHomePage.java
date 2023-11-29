@@ -2,12 +2,13 @@ package pages.bing;
 
 import org.openqa.selenium.WebDriver;
 import pages.base.BasePage;
+
 import static com.telerikacademy.testframework.utils.Constants.*;
 
 public class BingHomePage extends BasePage {
 
     public BingHomePage(WebDriver driver) {
-        super(driver, "bing.homePage");
+        super(driver, BING_HOME_PAGE);
     }
 
     public void enterSearchTerm(String term) {

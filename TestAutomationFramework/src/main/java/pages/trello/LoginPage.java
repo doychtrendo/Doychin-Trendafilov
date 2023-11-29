@@ -3,13 +3,14 @@ package pages.trello;
 import org.openqa.selenium.WebDriver;
 
 import static com.telerikacademy.testframework.Utils.getConfigPropertyByKey;
+import static com.telerikacademy.testframework.utils.Constants.*;
 
 public class LoginPage extends BaseTrelloPage {
 
     public static String boardId = null;
 
     public LoginPage(WebDriver driver) {
-        super(driver, "trello.loginPage");
+        super(driver, TRELLO_LOGIN_PAGE);
     }
 
     public void loginUser(String userKey) {
@@ -19,18 +20,18 @@ public class LoginPage extends BaseTrelloPage {
         navigateToPage();
         assertPageNavigated();
 
-        actions.waitForElementVisible("trello.loginPage.username");
+        actions.waitForElementVisible(TRELLO_LOGIN_PAGE_USERNAME);
 
-        actions.typeValueInField(username, "trello.loginPage.username");
-        actions.waitForElementVisible("trello.loginPage.loginButton");
-        actions.clickElement("trello.loginPage.loginButton");
+        actions.typeValueInField(username, TRELLO_LOGIN_PAGE_USERNAME);
+        actions.waitForElementVisible(TRELLO_LOGIN_PAGE_LOGIN_BUTTON);
+        actions.clickElement(TRELLO_LOGIN_PAGE_LOGIN_BUTTON);
 
-        actions.waitForElementClickable("trello.loginPage.loginSubmitButton");
-        actions.waitForElementClickable("trello.loginPage.password");
+        actions.waitForElementClickable(TRELLO_LOGIN_PAGE_LOGIN_SUBMIT_BUTTON);
+        actions.waitForElementClickable(TRELLO_LOGIN_PAGE_PASSWORD);
 
-        actions.typeValueInField(password, "trello.loginPage.password");
-        actions.clickElement("trello.loginPage.loginSubmitButton");
+        actions.typeValueInField(password, TRELLO_LOGIN_PAGE_PASSWORD);
+        actions.clickElement(TRELLO_LOGIN_PAGE_LOGIN_SUBMIT_BUTTON);
 
-        actions.waitForElementVisible("trello.header.member.menuButton");
+        actions.waitForElementVisible(TRELLO_HEADER_MEMBER_MENU_BUTTON);
     }
 }
