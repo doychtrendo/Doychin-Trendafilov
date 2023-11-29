@@ -5,6 +5,8 @@ import pages.bing.BingHomePage;
 import pages.bing.BingResultsPage;
 
 import static com.telerikacademy.testframework.Utils.getUIMappingByKey;
+import static com.telerikacademy.testframework.utils.Constants.BING_HOME_PAGE_SEARCH_TEXT;
+import static com.telerikacademy.testframework.utils.Constants.BING_RESULTS_PAGE_FIRST_RESULT_TITLE;
 
 public class BingTests extends BaseTest {
 
@@ -23,9 +25,9 @@ public class BingTests extends BaseTest {
         BingHomePage home = new BingHomePage(actions.getDriver());
         home.navigateToPage();
 
-        home.searchAndSubmit(getUIMappingByKey("bing.homePage.searchText"));
+        home.searchAndSubmit(getUIMappingByKey(BING_HOME_PAGE_SEARCH_TEXT));
 
         BingResultsPage results = new BingResultsPage(actions.getDriver());
-        results.assertResultIsPresent(getUIMappingByKey("bing.resultsPage.firstResultTitle"));
+        results.assertResultIsPresent(getUIMappingByKey(BING_RESULTS_PAGE_FIRST_RESULT_TITLE));
     }
 }
