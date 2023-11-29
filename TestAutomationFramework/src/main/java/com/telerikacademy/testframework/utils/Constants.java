@@ -20,6 +20,7 @@ public class Constants {
     public static final String TRELLO_LOGIN_PAGE_LOGIN_SUBMIT_BUTTON = "trello.loginPage.loginSubmitButton";
 
     // Trello BoardPage Locators
+    public static final String TRELLO_HOME_PAGE = "trello.homePage";
     public static final String TRELLO_BOARD_PAGE = "trello.boardPage";
     public static final String TRELLO_BOARDS_PAGE = "trello.boardsPage";
     public static final String TRELLO_BOARD_PAGE_SECOND_LIST = "(//div[@class='list js-list-content'])[2]";

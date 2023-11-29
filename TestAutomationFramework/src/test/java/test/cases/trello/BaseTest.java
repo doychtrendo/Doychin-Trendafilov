@@ -5,6 +5,8 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import pages.trello.LoginPage;
 
+import static com.telerikacademy.testframework.utils.Constants.TRELLO_HOME_PAGE;
+
 public class BaseTest {
 
     UserActions actions = new UserActions();
@@ -12,7 +14,7 @@ public class BaseTest {
     @BeforeClass
     public static void setUp() {
 
-        UserActions.loadBrowser("trello.homePage");
+        UserActions.loadBrowser(TRELLO_HOME_PAGE);
 
     }
 
