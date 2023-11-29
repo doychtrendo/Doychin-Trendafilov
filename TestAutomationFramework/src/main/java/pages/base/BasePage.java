@@ -1,4 +1,4 @@
-package com.telerikacademy.testframework.pages;
+package pages.base;
 
 import com.telerikacademy.testframework.UserActions;
 import com.telerikacademy.testframework.Utils;

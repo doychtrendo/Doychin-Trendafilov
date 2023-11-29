@@ -1,6 +1,6 @@
 package pages.bing;
 
-import com.telerikacademy.testframework.pages.BasePage;
+import pages.base.BasePage;
 import org.openqa.selenium.WebDriver;
 
 public class BingResultsPage extends BasePage {
