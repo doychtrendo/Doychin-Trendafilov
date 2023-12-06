@@ -7,9 +7,11 @@ import pages.moveit.LoginPage;
 public class LoginTest extends BaseTest {
 
     @Test
+    //MOV-1 [MOVEit-Auth] Verify successful login with valid credentials
     public void testSuccessfulLogin() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.navigateToPage();
+        loginPage.assertPageNavigated();
         loginPage.assertLoginPageMessage();
         loginPage.assertPasswordFieldVisible();
         loginPage.assertUsernameFieldVisible();
