@@ -1,6 +1,7 @@
 package test.cases.moveit;
 
 import com.moveit.testframework.utils.Constants;
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -14,6 +15,7 @@ import static com.moveit.testframework.utils.Constants.*;
 public class SendPackageTest extends BaseTest {
 
     @Test
+    //MOV-4 [MOVEit-PackageHandling] Successfully Send Package with File Attachment
     public void testSendPackageWithAttachment() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.navigateToPage();
@@ -41,9 +43,13 @@ public class SendPackageTest extends BaseTest {
             e.printStackTrace();
         }
 
+        Assert.assertTrue("Uploaded package is not visible.",
+                packagesPage.actions.isElementPresent("//div[@title='surprise.docx'][contains(.,'surprise.docx')]"));
+
         packagesPage.clickClose();
         packagesPage.clickSend();
 
-        //assert message for package sent
+        Assert.assertTrue("Package sent confirmation message not found.",
+                packagesPage.actions.isElementPresent("//div[contains(@class,'statuscontent')]"));
     }
 }
