@@ -155,4 +155,15 @@ public class UserActions {
             Assert.fail("Element with locator: '" + xpath + "' is still present.");
         }
     }
+
+    public boolean isElementPresent(String locator, Object... arguments) {
+        try {
+            String xpath = getLocatorValueByKey(locator, arguments);
+            WebElement element = driver.findElement(By.xpath(xpath));
+            return element.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
 }
