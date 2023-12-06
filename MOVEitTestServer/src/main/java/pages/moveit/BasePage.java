@@ -15,7 +15,7 @@ public abstract class BasePage {
         String pageUrl = Utils.getConfigPropertyByKey(urlKey);
         this.driver = driver;
         this.url = pageUrl;
-        actions = new UserActions();
+        actions = new UserActions(driver);
     }
 
     public String getUrl() {

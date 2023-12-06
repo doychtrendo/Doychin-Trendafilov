@@ -21,7 +21,7 @@ public class UserActions {
         return driver;
     }
 
-    public UserActions() {
+    public UserActions(WebDriver driver) {
         this.driver = getWebDriver();
     }
 
