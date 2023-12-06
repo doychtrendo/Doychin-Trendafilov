@@ -1,4 +1,10 @@
 package pages.moveit;
 
-public class LoginPage {
+import org.openqa.selenium.WebDriver;
+
+public class LoginPage extends BasePage {
+
+    public LoginPage(WebDriver driver, String urlKey) {
+        super(driver, urlKey);
+    }
 }
