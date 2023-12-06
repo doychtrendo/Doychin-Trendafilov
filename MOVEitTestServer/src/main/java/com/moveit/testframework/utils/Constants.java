@@ -3,8 +3,8 @@ package com.moveit.testframework.utils;
 public class Constants {
 
     //URLS
-    public static final String HOME_PAGE = "MOVEit.loginPage";
-    public static final String LOGIN_PAGE = "MOVEit.homePage";
+    public static final String HOME_PAGE = "MOVEit.homePage";
+    public static final String LOGIN_PAGE = "MOVEit.loginPage";
 
     //XPATH
     public static final String LOGIN_USERNAME_FIELD_PATH = "loginPage.usernameField";
@@ -12,6 +12,7 @@ public class Constants {
     public static final String LOGIN_BUTTON_PATH = "loginPage.loginButton";
     public static final String LOGIN_SECURE_MESSAGE = "loginPage.secureMessage";
     public static final String LOGIN_ERROR_MESSAGE = "loginPage.errorMessage";
+    public static final String LOGOUT_BUTTON = "homePage.logoutButton";
 
     //USERDATA
     public static final String USER_NAME = "MOVEit.username";

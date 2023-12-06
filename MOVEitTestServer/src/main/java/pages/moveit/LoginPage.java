@@ -19,6 +19,10 @@ public class LoginPage extends BasePage {
         actions.clickElement(LOGIN_BUTTON_PATH);
     }
 
+    public void logout() {
+        actions.clickElement(LOGOUT_BUTTON);
+    }
+
     @Override
     public void assertPageNavigated() {
         String currentUrl = driver.getCurrentUrl();
@@ -29,6 +33,7 @@ public class LoginPage extends BasePage {
     public void assertLoginPageMessage() {
         actions.assertElementPresent(Constants.LOGIN_SECURE_MESSAGE);
     }
+
 
     public void assertPasswordFieldVisible() {
         actions.assertElementPresent(LOGIN_PASSWORD_FIELD_PATH);
