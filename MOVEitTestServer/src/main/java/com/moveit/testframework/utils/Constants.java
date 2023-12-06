@@ -19,6 +19,10 @@ public class Constants {
     public static final String USER_PASSWORD = "MOVEit.password";
     public static final String INVALID_USER_NAME = "MOVEit.invalidUsername";
     public static final String INVALID_USER_PASSWORD = "MOVEit.invalidPassword";
+    public static final String NEW_CONTACT_NAME = "John Doe";
+    public static final String NEW_CONTACT_MAIL = "john.doe@example.com";
+    public static final String CONTACT_CONFIRMATION_ERROR = "Contact addition confirmation message not found";
+    public static final String CONTACT_NOT_FOUND_ERROR = "John Doe is not visible on page";
 
     // XPath for PackagesPage
     public static final String PACKAGES_BUTTON_XPATH = "packagesPage.packagesButton";
@@ -35,5 +39,14 @@ public class Constants {
     public static final String PACKAGE_RECIPIENT = "doychj@gmail.com";
     public static final String PACKAGE_SUBJECT = "test package for you";
     public static final String PACKAGE_BODY = "nice package!";
+
+    public static final String CONTACTS_BUTTON = "contactsPage.contactsButton";
+    public static final String ADD_CONTACT_BUTTON = "contactsPage.addContactButton";
+    public static final String CONTACT_NAME = "contactsPage.contactName";
+    public static final String CONTACT_EMAIL = "contactsPage.contactEmail";
+    public static final String ADD_CONTACT_CONFIRMATION_BUTTON = "contactsPage.confirmAddContact";
+    public static final String CONTACT_ADDED_CONFIRMATION_MESSAGE = "contactsPage.confirmMessage";
+    public static final String ADDRESS_BOOK_SEARCH = "contactsPage.addressSearch";
+    public static final String RETURN_TO_ADDRESS_BOOK = "contactsPage.returnToAddressBook";
 
 }

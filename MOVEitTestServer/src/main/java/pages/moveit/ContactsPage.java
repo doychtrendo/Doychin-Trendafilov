@@ -10,15 +10,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static com.moveit.testframework.utils.Constants.*;
+
 public class ContactsPage extends BasePage {
 
-    private static final String CONTACTS_BUTTON_XPATH = "//span[contains(.,'Contacts')]";
-    private static final String ADD_CONTACT_BUTTON_XPATH = "//span[contains(.,'Add contact...')]";
-    private static final String FULL_NAME_FIELD_XPATH = "//input[contains(@name,'arg02')]";
-    private static final String EMAIL_ADDRESS_FIELD_XPATH = "//input[contains(@name,'arg01')]";
-    private static final String CONFIRM_ADD_CONTACT_BUTTON_XPATH = "//span[contains(.,'Add contact')]";
-    private static final String CONFIRMATION_MESSAGE_XPATH = "//div[@class='statuscontent'][contains(.,'Added address book contact OK.Click here to return to the address book.')]";
-    private static final String RETURN_TO_ADDRESS_BOOK_XPATH = "//span[contains(.,'Click here to return to the address book.')]";
     private static final String SEARCH_FIELD_XPATH = "//input[contains(@placeholder,'Search')]";
 
     public ContactsPage(WebDriver driver) {
@@ -26,31 +21,31 @@ public class ContactsPage extends BasePage {
     }
 
     public void openContacts() {
-        actions.clickElement(CONTACTS_BUTTON_XPATH);
+        actions.clickElement(CONTACTS_BUTTON);
     }
 
     public void clickAddContact() {
-        actions.clickElement(ADD_CONTACT_BUTTON_XPATH);
+        actions.clickElement(ADD_CONTACT_BUTTON);
     }
 
     public void enterFullName(String fullName) {
-        actions.typeValueInField(fullName, FULL_NAME_FIELD_XPATH);
+        actions.typeValueInField(fullName, CONTACT_NAME);
     }
 
     public void enterEmailAddress(String emailAddress) {
-        actions.typeValueInField(emailAddress, EMAIL_ADDRESS_FIELD_XPATH);
+        actions.typeValueInField(emailAddress, CONTACT_EMAIL);
     }
 
     public void confirmAddContact() {
-        actions.clickElement(CONFIRM_ADD_CONTACT_BUTTON_XPATH);
+        actions.clickElement(ADD_CONTACT_CONFIRMATION_BUTTON);
     }
 
     public boolean isContactAddedSuccessfully() {
-        return actions.isElementPresent(CONFIRMATION_MESSAGE_XPATH);
+        return actions.isElementPresent(CONTACT_ADDED_CONFIRMATION_MESSAGE);
     }
 
     public void returnToAddressBook() {
-        actions.clickElement(RETURN_TO_ADDRESS_BOOK_XPATH);
+        actions.clickElement(RETURN_TO_ADDRESS_BOOK);
     }
 
     public boolean isContactVisibleOnPage(String contactName) {

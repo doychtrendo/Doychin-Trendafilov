@@ -6,9 +6,12 @@ import org.junit.Test;
 import pages.moveit.ContactsPage;
 import pages.moveit.LoginPage;
 
+import static com.moveit.testframework.utils.Constants.*;
+
 public class AddressBookManagementTest extends BaseTest {
 
     @Test
+    //MOV-6 [MOVEit-Contacts] Successfully Add Contact to Contacts
     public void testAddNewContact() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.navigateToPage();
@@ -17,15 +20,15 @@ public class AddressBookManagementTest extends BaseTest {
         ContactsPage contactsPage = new ContactsPage(driver);
         contactsPage.openContacts();
         contactsPage.clickAddContact();
-        contactsPage.enterFullName("John Doe");
-        contactsPage.enterEmailAddress("john.doe@example.com");
+        contactsPage.enterFullName(NEW_CONTACT_NAME);
+        contactsPage.enterEmailAddress(NEW_CONTACT_MAIL);
         contactsPage.confirmAddContact();
-        Assert.assertTrue("Contact addition confirmation message not found", contactsPage.isContactAddedSuccessfully());
+        Assert.assertTrue(CONTACT_CONFIRMATION_ERROR, contactsPage.isContactAddedSuccessfully());
 
         contactsPage.returnToAddressBook();
-        contactsPage.searchForContact("John Doe");
-        contactsPage.waitForContactVisible("John Doe");
-        Assert.assertTrue("John Doe is not visible on page", contactsPage.isContactVisibleOnPage("John Doe"));
+        contactsPage.searchForContact(NEW_CONTACT_NAME);
+        contactsPage.waitForContactVisible(NEW_CONTACT_NAME);
+        Assert.assertTrue(CONTACT_NOT_FOUND_ERROR, contactsPage.isContactVisibleOnPage(NEW_CONTACT_NAME));
 
     }
 
