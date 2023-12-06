@@ -2,14 +2,14 @@ package test.cases.moveit;
 
 import com.moveit.testframework.utils.Constants;
 import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import pages.moveit.LoginPage;
 import pages.moveit.PackagesPage;
 
-import java.awt.*;
-import java.awt.event.KeyEvent;
+import java.io.File;
 
 import static com.moveit.testframework.utils.Constants.*;
-
 
 public class SendPackageTest extends BaseTest {
 
@@ -26,36 +26,24 @@ public class SendPackageTest extends BaseTest {
         packagesPage.enterSubject(PACKAGE_SUBJECT);
         packagesPage.enterBody(PACKAGE_BODY);
         packagesPage.upload();
-        packagesPage.browse();
+
+        File file = new File("src/test/resources/testdata/surprise.docx");
+        String absolutePath = file.getAbsolutePath();
+
+        WebElement fileInput = driver.findElement(By.className("file-selector-input"));
+        fileInput.sendKeys(absolutePath);
+
+        packagesPage.clickUpload();
 
         try {
-            Robot robot = new Robot();
-            robot.delay(1000);
-
-            String fileName = "surprise.docx";
-            for (char c : fileName.toCharArray()) {
-                int keyCode = KeyEvent.getExtendedKeyCodeForChar(c);
-                if (Character.isUpperCase(c)) {
-                    robot.keyPress(KeyEvent.VK_SHIFT);
-                }
-                robot.keyPress(keyCode);
-                robot.keyRelease(keyCode);
-                if (Character.isUpperCase(c)) {
-                    robot.keyRelease(KeyEvent.VK_SHIFT);
-                }
-            }
-
-            robot.delay(1000);
-            robot.keyPress(KeyEvent.VK_ENTER);
-            robot.keyRelease(KeyEvent.VK_ENTER);
-
-        } catch (Exception e) {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-        packagesPage.clickUpload();
         packagesPage.clickClose();
         packagesPage.clickSend();
 
+        //assert message for package sent
     }
 }
