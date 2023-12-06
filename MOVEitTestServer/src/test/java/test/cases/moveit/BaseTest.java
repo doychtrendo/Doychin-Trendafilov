@@ -1,22 +1,23 @@
 package test.cases.moveit;
 
-import com.moveit.testframework.UserActions;
+import com.moveit.testframework.Utils;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.openqa.selenium.WebDriver;
 
-import static com.moveit.testframework.utils.Constants.BING_HOME_PAGE;
+public abstract class BaseTest {
 
-public class BaseTest {
-
-    UserActions actions = new UserActions();
+    protected static WebDriver driver;
 
     @BeforeClass
     public static void setUp() {
-        UserActions.loadBrowser(BING_HOME_PAGE);
+        driver = Utils.getWebDriver();
     }
 
     @AfterClass
     public static void tearDown() {
-        UserActions.quitDriver();
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }
