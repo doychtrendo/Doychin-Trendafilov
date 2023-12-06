@@ -31,8 +31,16 @@ public class PackagesPage extends BasePage {
         actions.typeValueInField(body, BODY_FIELD_XPATH);
     }
 
+    public void upload() {
+        actions.clickElement(UPLOAD_FILE_BUTTON_XPATH);
+    }
+
     public void uploadFile(String filePath) {
         actions.clickElement(UPLOAD_FILE_BUTTON_XPATH);
+    }
+
+    public void browse() {
+        actions.clickElement(BROWSE_BUTTON_XPATH);
     }
 
     public void clickUpload() {

@@ -31,4 +31,9 @@ public class Constants {
     public static final String UPLOAD_BUTTON_XPATH = "packagesPage.uploadButton";
     public static final String CLOSE_BUTTON_XPATH = "packagesPage.closeButton";
     public static final String SEND_BUTTON_XPATH = "packagesPage.sendButton";
+
+    public static final String PACKAGE_RECIPIENT = "doychj@gmail.com";
+    public static final String PACKAGE_SUBJECT = "test package for you";
+    public static final String PACKAGE_BODY = "nice package!";
+
 }
