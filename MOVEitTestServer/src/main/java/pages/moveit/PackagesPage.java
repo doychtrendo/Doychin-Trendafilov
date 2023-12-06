@@ -3,25 +3,16 @@ package pages.moveit;
 import com.moveit.testframework.utils.Constants;
 import org.openqa.selenium.WebDriver;
 
-public class PackagesPage extends BasePage {
+import static com.moveit.testframework.utils.Constants.*;
 
-    private static final String PACKAGES_BUTTON = "//span[contains(.,'Packages')]";
-    private static final String SEND_PACKAGE_BUTTON_XPATH = "//span[contains(.,'Send Package')]";
-    private static final String RECIPIENT_FIELD_XPATH = "//input[contains(@name,'opt01')]";
-    private static final String SUBJECT_FIELD_XPATH = "//input[contains(@name,'arg01')]";
-    private static final String BODY_FIELD_XPATH = "//*[@id=\"arg04\"]";
-    private static final String UPLOAD_FILE_BUTTON_XPATH = "//a[contains(.,'Upload Files')]";
-    private static final String BROWSE_BUTTON_XPATH = "//span[@tabindex='0'][contains(.,'Browse...')]";
-    private static final String UPLOAD_BUTTON_XPATH = "//button[@data-testid='modal-footer-button-primary'][contains(.,'Upload')]";
-    private static final String CLOSE_BUTTON_XPATH = "//button[@data-testid='modal-footer-button-primary'][contains(.,'Close')]";
-    private static final String SEND_BUTTON_XPATH = "//span[contains(.,'Send')]";
+public class PackagesPage extends BasePage {
 
     public PackagesPage(WebDriver driver) {
         super(driver, Constants.HOME_PAGE);
     }
 
     public void clickPackagesButton() {
-        actions.clickElement(PACKAGES_BUTTON);
+        actions.clickElement(PACKAGES_BUTTON_XPATH);
     }
 
     public void clickSendPackage() {
