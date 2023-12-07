@@ -49,4 +49,9 @@ public class Constants {
     public static final String ADDRESS_BOOK_SEARCH = "contactsPage.addressSearch";
     public static final String RETURN_TO_ADDRESS_BOOK = "contactsPage.returnToAddressBook";
 
+    public static final String HOME_FOLDER_BUTTON = "homeFolder.homeFolderButton";
+    public static final String UPLOAD_FILES_BUTTON = "homeFolder.uploadFilesButton";
+    public static final String UPLOAD_BUTTON = "homeFolder.uploadButton";
+    public static final String CLOSE_BUTTON = "homeFolder.closeButton";
+    public static final String DOWNLOAD_BUTTON = "homeFolder.downloadButton";
 }

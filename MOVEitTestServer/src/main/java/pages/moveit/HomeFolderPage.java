@@ -1,15 +1,16 @@
 package pages.moveit;
 
 import com.moveit.testframework.utils.Constants;
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.io.File;
+
+import static com.moveit.testframework.utils.Constants.*;
 
 public class HomeFolderPage extends BasePage {
-
-    private static final String HOME_FOLDER_BUTTON = "//span[contains(.,'Home Folder')]";
-    private static final String UPLOAD_FILES_BUTTON = "//span[contains(.,'Upload Files')]";
-    private static final String UPLOAD_BUTTON = "//button[@data-testid='modal-footer-button-primary'][contains(.,'Upload')]";
-    private static final String CLOSE_BUTTON = "//button[@data-testid='modal-footer-button-primary'][contains(.,'Close')]"; //button[@data-testid='modal-footer-button-primary'][contains(.,'Close')]
-    private static final String DOWNLOAD_BUTTON = "//span[contains(.,'Download')]";
 
     public HomeFolderPage(WebDriver driver) {
         super(driver, Constants.HOME_PAGE);
@@ -50,6 +51,41 @@ public class HomeFolderPage extends BasePage {
     public void openFile(String fileName) {
         String fileXPath = "//span[contains(.,'" + fileName + "')]";
         actions.clickElement(fileXPath);
+    }
+
+    public static void waitForUploadToComplete() {
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void assertFileUploaded(String fileName) {
+        boolean fileExists = checkFileExists(fileName);
+        Assert.assertTrue("File not uploaded: " + fileName, fileExists);
+    }
+
+    public void assertValidationMessageDisplayed() {
+        boolean isValidationMessagePresent = actions.isElementPresent("//span[@class='modal-title'][contains(.,'Validate Files')]");
+        Assert.assertTrue("Validation message not found.", isValidationMessagePresent);
+    }
+
+    public void waitForValidationMessage() {
+        String validationMessageLocator = "//span[@class='modal-title'][contains(.,'Validate Files')]";
+        actions.waitForElementVisible(validationMessageLocator);
+    }
+
+    public void uploadFile(String fileName) {
+        File file = new File("src/test/resources/testdata/" + fileName);
+        String absolutePath = file.getAbsolutePath();
+
+        deleteFile(fileName);
+
+        clickUploadFilesButton();
+
+        WebElement fileInput = driver.findElement(By.className("file-selector-input"));
+        fileInput.sendKeys(absolutePath);
     }
 
 }
