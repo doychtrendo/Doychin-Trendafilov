@@ -51,5 +51,9 @@ public class SendPackageTest extends BaseTest {
 
         Assert.assertTrue("Package sent confirmation message not found.",
                 packagesPage.actions.isElementPresent("//div[contains(@class,'statuscontent')]"));
+
+        //login with the other user
+
+        //check if file received
     }
 }
