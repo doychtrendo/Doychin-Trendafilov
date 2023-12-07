@@ -9,6 +9,7 @@ import static com.moveit.testframework.utils.Constants.*;
 public class FileUploadDownloadTest extends BaseTest {
 
     @Test
+    //MOV-7 [MOVEit-FileManagement] Successful File Upload and Download
     public void testFileUploadDownload() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.navigateToPage();

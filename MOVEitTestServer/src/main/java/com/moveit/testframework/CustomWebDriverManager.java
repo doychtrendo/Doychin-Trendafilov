@@ -18,7 +18,7 @@ public class CustomWebDriverManager {
 
         public WebDriver getDriver() {
             if (driver == null) {
-                setupBrowser();
+                driver = setupBrowser();
             }
             return driver;
         }
