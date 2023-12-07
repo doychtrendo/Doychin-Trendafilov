@@ -19,7 +19,6 @@ public class Constants {
     public static final String LOGIN_USERNAME_FIELD_PATH = "loginPage.usernameField";
     public static final String LOGIN_PASSWORD_FIELD_PATH = "loginPage.passwordField";
     public static final String LOGIN_BUTTON_PATH = "loginPage.loginButton";
-    public static final String LOGIN_SECURE_MESSAGE = "loginPage.secureMessage";
     public static final String LOGIN_ERROR_MESSAGE = "loginPage.errorMessage";
     public static final String LOGOUT_BUTTON = "homePage.logoutButton";
 
@@ -90,4 +89,20 @@ public class Constants {
     public static final String PACKAGE_BODY_SUBJECT = "test package for you";
     public static final long UPLOAD_COMPLETION_WAIT_TIME = 10000;
     public static final String FILE_SELECTOR = "file-selector-input";
+
+    // XPaths
+    public static final String PACKAGE_TITLE = "//b[contains(.,'%s')]";
+    public static final String PACKAGE_SUBJECT_XPATH = "//h3[contains(text(),'%s')]";
+    public static final String PACKAGE_NAME_XPATH = "//a[contains(text(),'%s')]";
+    public static final String PACKAGE_SENDER_XPATH = "//span[contains(text(),'%s')]";
+    public static final String RETURN_TO_PARENT_PACKAGE_XPATH = "//span[contains(.,'Return to Parent Package')]";
+    public static final String DELETE_XPATH = "//span[contains(.,'Delete')]";
+    public static final String DELETION_CONFIRMATION_XPATH = "//div[@class='statuscontent'][contains(text(),'%s')]";
+
+    // Messages
+    public static final String SUBJECT_NOT_EXPECTED_MSG = "Package subject not as expected";
+    public static final String NAME_NOT_EXPECTED_MSG = "Package name not as expected";
+    public static final String SENDER_NOT_EXPECTED_MSG = "Package sender not as expected";
+    public static final String DELETION_MSG_NOT_SHOWN = "Deletion confirmation message not shown";
+
 }

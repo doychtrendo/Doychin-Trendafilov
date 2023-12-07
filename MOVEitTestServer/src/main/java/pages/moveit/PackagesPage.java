@@ -106,43 +106,36 @@ public class PackagesPage extends BasePage {
     }
 
     public void clickPackageWithTitle(String title) {
-        String xpath = "//b[contains(.,'" + title + "')]";
-        actions.clickElement(xpath);
+        actions.clickElement(String.format(PACKAGE_TITLE, title));
     }
 
     public void assertPackageSubject(String expectedSubject) {
-        String xpath = "//h3[contains(text(),'" + expectedSubject + "')]";
-        Assert.assertTrue("Package subject not as expected",
-                actions.isElementPresent(xpath));
+        Assert.assertTrue(SUBJECT_NOT_EXPECTED_MSG,
+                actions.isElementPresent(String.format(PACKAGE_SUBJECT_XPATH, expectedSubject)));
     }
 
     public void assertPackageNameAndClick(String fileName) {
-        String xpath = "//a[contains(text(),'" + fileName + "')]";
-        WebElement fileElement = driver.findElement(By.xpath(xpath));
-        Assert.assertTrue("Package name not as expected", fileElement.isDisplayed());
+        WebElement fileElement = driver.findElement(By.xpath(String.format(PACKAGE_NAME_XPATH, fileName)));
+        Assert.assertTrue(NAME_NOT_EXPECTED_MSG, fileElement.isDisplayed());
         fileElement.click();
     }
 
     public void assertPackageSender(String expectedSender) {
-        String xpath = "//span[contains(text(),'" + expectedSender + "')]";
-        Assert.assertTrue("Package sender not as expected",
-                actions.isElementPresent(xpath));
+        Assert.assertTrue(SENDER_NOT_EXPECTED_MSG,
+                actions.isElementPresent(String.format(PACKAGE_SENDER_XPATH, expectedSender)));
     }
 
     public void clickReturnToParentPackage() {
-        String xpath = "//span[contains(.,'Return to Parent Package')]";
-        actions.clickElement(xpath);
+        actions.clickElement(RETURN_TO_PARENT_PACKAGE_XPATH);
     }
 
     public void clickDelete() {
-        String xpath = "//span[contains(.,'Delete')]";
-        actions.clickElement(xpath);
+        actions.clickElement(DELETE_XPATH);
     }
 
     public void assertDeletionConfirmation(String expectedMessage) {
-        String xpath = "//div[@class='statuscontent'][contains(text(),'" + expectedMessage + "')]";
-        Assert.assertTrue("Deletion confirmation message not shown",
-                actions.isElementPresent(xpath));
+        Assert.assertTrue(DELETION_MSG_NOT_SHOWN,
+                actions.isElementPresent(String.format(DELETION_CONFIRMATION_XPATH, expectedMessage)));
     }
 
 }

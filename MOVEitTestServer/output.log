@@ -1,3 +1,67 @@
-2023-12-06 18:58:10,277 INFO  [main] Initializing WebDriver
-2023-12-06 18:58:11,980 INFO  [main] Initializing WebDriver
-2023-12-06 18:58:14,735 INFO  [main] Clicking on element loginPage.loginButton
+2023-12-07 18:38:23,836 INFO  [main] Initializing WebDriver
+2023-12-07 18:38:25,851 INFO  [main] Initializing WebDriver
+2023-12-07 18:38:25,852 INFO  [main] Initializing WebDriver
+2023-12-07 18:38:28,664 INFO  [main] Initializing WebDriver
+2023-12-07 18:38:29,518 INFO  [main] Clicking on element loginPage.loginButton
+2023-12-07 18:38:30,564 INFO  [main] Initializing WebDriver
+2023-12-07 18:38:31,773 INFO  [main] Clicking on element loginPage.loginButton
+2023-12-07 18:38:34,073 INFO  [main] Clicking on element homePage.logoutButton
+2023-12-07 18:38:35,483 INFO  [main] Initializing WebDriver
+2023-12-07 18:38:36,774 INFO  [main] Clicking on element loginPage.loginButton
+2023-12-07 18:38:38,687 INFO  [main] Clicking on element homePage.logoutButton
+2023-12-07 18:38:40,657 INFO  [main] Quitting WebDriver
+2023-12-07 18:38:40,659 INFO  [main] Initializing WebDriver
+2023-12-07 18:38:41,882 INFO  [main] Initializing WebDriver
+2023-12-07 18:38:44,621 INFO  [main] Clicking on element loginPage.loginButton
+2023-12-07 18:38:46,584 INFO  [main] Initializing WebDriver
+2023-12-07 18:38:46,584 INFO  [main] Clicking on element homeFolder.homeFolderButton
+2023-12-07 18:38:49,408 INFO  [main] Clicking on element //span[contains(.,'surprise.docx')]
+2023-12-07 18:38:50,583 INFO  [main] Clicking on element //span[contains(.,'Delete')]
+2023-12-07 18:38:51,093 INFO  [main] Clicking on element //span[contains(.,'Yes')]
+2023-12-07 18:38:52,322 INFO  [main] Clicking on element homeFolder.uploadFilesButton
+2023-12-07 18:39:02,592 INFO  [main] Clicking on element homeFolder.uploadButton
+2023-12-07 18:39:12,838 INFO  [main] Clicking on element homeFolder.closeButton
+2023-12-07 18:39:14,033 INFO  [main] Clicking on element //span[contains(.,'surprise.docx')]
+2023-12-07 18:39:15,241 INFO  [main] Clicking on element homeFolder.downloadButton
+2023-12-07 18:39:20,536 INFO  [main] Quitting WebDriver
+2023-12-07 18:39:21,301 INFO  [main] Initializing WebDriver
+2023-12-07 18:39:22,538 INFO  [main] Initializing WebDriver
+2023-12-07 18:39:25,001 INFO  [main] Clicking on element loginPage.loginButton
+2023-12-07 18:39:26,898 INFO  [main] Initializing WebDriver
+2023-12-07 18:39:26,898 INFO  [main] Clicking on element contactsPage.contactsButton
+2023-12-07 18:39:28,217 INFO  [main] Clicking on element contactsPage.addContactButton
+2023-12-07 18:39:29,526 INFO  [main] Clicking on element contactsPage.confirmAddContact
+2023-12-07 18:39:30,717 INFO  [main] Clicking on element contactsPage.returnToAddressBook
+2023-12-07 18:39:33,331 INFO  [main] Quitting WebDriver
+2023-12-07 18:39:34,034 INFO  [main] Initializing WebDriver
+2023-12-07 18:39:35,287 INFO  [main] Initializing WebDriver
+2023-12-07 18:39:37,742 INFO  [main] Clicking on element loginPage.loginButton
+2023-12-07 18:39:39,588 INFO  [main] Initializing WebDriver
+2023-12-07 18:39:39,588 INFO  [main] Clicking on element packagesPage.packagesButton
+2023-12-07 18:39:40,900 INFO  [main] Clicking on element packagesPage.sendPackageButton
+2023-12-07 18:39:44,223 INFO  [main] Clicking on element packagesPage.uploadFileButton
+2023-12-07 18:39:44,299 INFO  [main] Clicking on element packagesPage.uploadButton
+2023-12-07 18:39:54,533 INFO  [main] Clicking on element packagesPage.closeButton
+2023-12-07 18:39:55,905 INFO  [main] Clicking on element packagesPage.sendButton
+2023-12-07 18:39:56,752 INFO  [main] Clicking on element homePage.logoutButton
+2023-12-07 18:39:57,682 INFO  [main] Clicking on element loginPage.loginButton
+2023-12-07 18:39:58,419 INFO  [main] Clicking on element //b[contains(.,'test package for you')]
+2023-12-07 18:40:00,417 INFO  [main] Clicking on element //span[contains(.,'Return to Parent Package')]
+2023-12-07 18:40:00,847 INFO  [main] Clicking on element //span[contains(.,'Delete')]
+2023-12-07 18:40:01,402 INFO  [main] Clicking on element homePage.logoutButton
+2023-12-07 18:40:01,862 INFO  [main] Quitting WebDriver
+2023-12-07 18:40:02,594 INFO  [main] Initializing WebDriver
+2023-12-07 18:40:03,813 INFO  [main] Initializing WebDriver
+2023-12-07 18:40:07,119 INFO  [main] Clicking on element loginPage.loginButton
+2023-12-07 18:40:09,455 INFO  [main] Initializing WebDriver
+2023-12-07 18:40:09,455 INFO  [main] Clicking on element packagesPage.packagesButton
+2023-12-07 18:40:10,770 INFO  [main] Clicking on element packagesPage.sendPackageButton
+2023-12-07 18:40:14,000 INFO  [main] Clicking on element packagesPage.uploadFileButton
+2023-12-07 18:40:14,072 INFO  [main] Clicking on element packagesPage.uploadButton
+2023-12-07 18:40:24,322 INFO  [main] Clicking on element packagesPage.closeButton
+2023-12-07 18:40:25,659 INFO  [main] Clicking on element packagesPage.sendButton
+2023-12-07 18:40:26,362 INFO  [main] Clicking on element //a[contains(.,'Sent')]
+2023-12-07 18:40:28,663 INFO  [main] Clicking on element //a[contains(text(), 'test package for you')]
+2023-12-07 18:40:29,342 INFO  [main] Clicking on element //span[contains(.,'Recall')]
+2023-12-07 18:40:29,968 INFO  [main] Clicking on element //span[contains(.,'Yes')]
+2023-12-07 18:40:30,531 INFO  [main] Quitting WebDriver
