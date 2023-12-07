@@ -78,4 +78,28 @@ public class PackagesPage extends BasePage {
         }
     }
 
+    public void verifyUploadedPackageVisible(String fileName) {
+        Assert.assertTrue("Uploaded package is not visible.",
+                actions.isElementPresent("//div[@title='" + fileName + "'][contains(.,'" + fileName + "')]"));
+    }
+
+    public void verifyRecalledPackageStatus() {
+        Assert.assertTrue("Recall status message not found.",
+                actions.isElementPresent("//div[@class='statuscontent'][contains(.,'Recalled package OK.')]"));
+    }
+
+    public void navigateToSentPackages() {
+        actions.clickElement("//a[contains(.,'Sent')]");
+    }
+
+    public void selectPackage(String packageName) {
+        actions.clickElement("//a[contains(text(), '" + packageName + "')]");
+    }
+
+    public void recallSelectedPackage() {
+        actions.clickElement("//span[contains(.,'Recall')]");
+        actions.waitForElementVisible("//span[contains(.,'Confirm Recall of Package')]");
+        actions.clickElement("//span[contains(.,'Yes')]");
+    }
+
 }

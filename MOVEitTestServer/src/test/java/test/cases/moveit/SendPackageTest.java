@@ -17,6 +17,7 @@ public class SendPackageTest extends BaseTest {
         loginPage.login(Constants.USER_NAME, Constants.USER_PASSWORD);
 
         PackagesPage packagesPage = new PackagesPage(driver);
+
         packagesPage.clickPackagesButton();
         packagesPage.clickSendPackage();
         packagesPage.enterRecipient(PACKAGE_RECIPIENT);

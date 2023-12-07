@@ -18,13 +18,13 @@ public class AddressBookManagementTest extends BaseTest {
         loginPage.login(Constants.USER_NAME, Constants.USER_PASSWORD);
 
         ContactsPage contactsPage = new ContactsPage(driver);
+
         contactsPage.openContacts();
         contactsPage.clickAddContact();
         contactsPage.enterFullName(NEW_CONTACT_NAME);
         contactsPage.enterEmailAddress(NEW_CONTACT_MAIL);
         contactsPage.confirmAddContact();
         Assert.assertTrue(CONTACT_CONFIRMATION_ERROR, contactsPage.isContactAddedSuccessfully());
-
         contactsPage.returnToAddressBook();
         contactsPage.searchForContact(NEW_CONTACT_NAME);
         contactsPage.waitForContactVisible(NEW_CONTACT_NAME);
