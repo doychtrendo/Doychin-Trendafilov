@@ -15,7 +15,10 @@ public class FileUploadDownloadTest extends BaseTest {
 
         HomeFolderPage homeFolderPage = new HomeFolderPage(driver);
         homeFolderPage.clickHomeFolder();
+
         String fileName = "surprise.docx";
+        homeFolderPage.checkFileExists(fileName);
+        homeFolderPage.deleteFile(fileName);
         homeFolderPage.uploadFile(fileName);
         HomeFolderPage.waitForUploadToComplete();
         homeFolderPage.clickUploadButton();

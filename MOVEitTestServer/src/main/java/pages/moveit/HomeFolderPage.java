@@ -21,14 +21,14 @@ public class HomeFolderPage extends BasePage {
     }
 
     public boolean checkFileExists(String fileName) {
-        return actions.isElementPresent("//span[contains(.,'" + fileName + "')]");
+        return actions.isElementPresent(String.format(Constants.FILE_SPAN, fileName));
     }
 
     public void deleteFile(String fileName) {
         if (checkFileExists(fileName)) {
-            String deleteButtonXPath = "//span[contains(.,'" + fileName + "')]/ancestor::tr//a[@title='Delete']";
-            actions.clickElement(deleteButtonXPath);
-            actions.clickElement("//span[contains(.,'Yes')]");
+            actions.clickElement(String.format(Constants.FILE_SPAN, fileName));
+            actions.clickElement(String.format(Constants.DELETE_BUTTON, fileName));
+            actions.clickElement(Constants.DELETE_YES_BUTTON);
         }
     }
 
@@ -49,43 +49,38 @@ public class HomeFolderPage extends BasePage {
     }
 
     public void openFile(String fileName) {
-        String fileXPath = "//span[contains(.,'" + fileName + "')]";
-        actions.clickElement(fileXPath);
+        actions.clickElement(String.format(FILE_SPAN, fileName));
     }
 
     public static void waitForUploadToComplete() {
         try {
-            Thread.sleep(10000);
+            Thread.sleep(UPLOAD_COMPLETION_WAIT_TIME);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
     public void assertFileUploaded(String fileName) {
-        boolean fileExists = checkFileExists(fileName);
-        Assert.assertTrue("File not uploaded: " + fileName, fileExists);
+        Assert.assertTrue(String.format(FILE_NOT_UPLOADED_MESSAGE, fileName), checkFileExists(fileName));
     }
 
     public void assertValidationMessageDisplayed() {
-        boolean isValidationMessagePresent = actions.isElementPresent("//span[@class='modal-title'][contains(.,'Validate Files')]");
-        Assert.assertTrue("Validation message not found.", isValidationMessagePresent);
+        Assert.assertTrue(VALIDATION_MESSAGE_NOT_FOUND, actions.isElementPresent(VALIDATION_MESSAGE));
     }
 
     public void waitForValidationMessage() {
-        String validationMessageLocator = "//span[@class='modal-title'][contains(.,'Validate Files')]";
-        actions.waitForElementVisible(validationMessageLocator);
+        actions.waitForElementVisible(VALIDATION_MESSAGE);
     }
 
     public void uploadFile(String fileName) {
-        File file = new File("src/test/resources/testdata/" + fileName);
+        File file = new File(TESTDATA_PATH + fileName);
         String absolutePath = file.getAbsolutePath();
 
         deleteFile(fileName);
 
         clickUploadFilesButton();
 
-        WebElement fileInput = driver.findElement(By.className("file-selector-input"));
+        WebElement fileInput = driver.findElement(By.className(FILE_SELECTOR));
         fileInput.sendKeys(absolutePath);
     }
-
 }
