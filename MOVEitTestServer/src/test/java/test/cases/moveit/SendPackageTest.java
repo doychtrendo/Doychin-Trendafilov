@@ -29,9 +29,18 @@ public class SendPackageTest extends BaseTest {
         packagesPage.clickClose();
         packagesPage.clickSend();
         packagesPage.verifyPackageSentConfirmationDisplayed();
+        loginPage.logout();
+
+        loginPage.navigateToPage();
+        loginPage.login(RECIPIENT_USER_NAME, RECIPIENT_PASSWORD);
+        packagesPage.clickPackageWithTitle(PACKAGE_SUBJECT);
+        packagesPage.assertPackageSubject(PACKAGE_SUBJECT);
+        packagesPage.assertPackageNameAndClick(FILE_NAME);
+        packagesPage.assertPackageSender(EXPECTED_SENDER);
+        packagesPage.clickReturnToParentPackage();
+        packagesPage.clickDelete();
+        packagesPage.assertDeletionConfirmation(PACKAGE_DELETED_MESSAGE);
+        loginPage.logout();
     }
 
-    //login with the other user
-
-    //check if file received
 }

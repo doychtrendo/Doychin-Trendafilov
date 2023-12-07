@@ -34,4 +34,5 @@ public class PackageRecallTest extends BaseTest {
         packagesPage.recallSelectedPackage();
         packagesPage.verifyRecalledPackageStatus();
     }
+
 }

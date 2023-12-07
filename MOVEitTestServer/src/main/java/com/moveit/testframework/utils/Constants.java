@@ -12,6 +12,8 @@ public class Constants {
     public static final String USER_PASSWORD = "MOVEit.password";
     public static final String INVALID_USER_NAME = "MOVEit.invalidUsername";
     public static final String INVALID_USER_PASSWORD = "MOVEit.invalidPassword";
+    public static final String RECIPIENT_USER_NAME = "MOVEit.recipientUsername";
+    public static final String RECIPIENT_PASSWORD = "MOVEit.recipientPassword";
 
     // Login Page Constants
     public static final String LOGIN_USERNAME_FIELD_PATH = "loginPage.usernameField";
@@ -34,6 +36,7 @@ public class Constants {
     public static final String PACKAGE_RECIPIENT = "doychj@gmail.com";
     public static final String PACKAGE_SUBJECT = "test package for you";
     public static final String PACKAGE_BODY = "nice package!";
+    public static final String EXPECTED_SENDER = "interview.doychin.trendafilov (interview.doychin.trendafilov)";
 
     // Contact Management Constants
     public static final String CONTACTS_BUTTON = "contactsPage.contactsButton";
@@ -80,6 +83,7 @@ public class Constants {
     public static final String RECALL_STATUS_NOT_FOUND_MSG = "Recall status message not found.";
     public static final String URL_ERROR_MESSAGE = "Landed URL is not as expected. Actual URL: ";
     public static final String EXPECTED_URL_MESSAGE = "'. Expected URL: '";
+    public static final String PACKAGE_DELETED_MESSAGE = "Trashed package OK.";
 
     // Miscellaneous Constants
     public static final String FILE_NAME = "surprise.docx";

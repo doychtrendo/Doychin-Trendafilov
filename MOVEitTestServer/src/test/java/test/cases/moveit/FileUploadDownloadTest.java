@@ -31,4 +31,5 @@ public class FileUploadDownloadTest extends BaseTest {
         homeFolderPage.waitForValidationMessage();
         homeFolderPage.assertValidationMessageDisplayed();
     }
+
 }

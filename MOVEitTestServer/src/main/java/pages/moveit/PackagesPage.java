@@ -105,4 +105,44 @@ public class PackagesPage extends BasePage {
         actions.clickElement(Constants.CONFIRM_YES_XPATH);
     }
 
+    public void clickPackageWithTitle(String title) {
+        String xpath = "//b[contains(.,'" + title + "')]";
+        actions.clickElement(xpath);
+    }
+
+    public void assertPackageSubject(String expectedSubject) {
+        String xpath = "//h3[contains(text(),'" + expectedSubject + "')]";
+        Assert.assertTrue("Package subject not as expected",
+                actions.isElementPresent(xpath));
+    }
+
+    public void assertPackageNameAndClick(String fileName) {
+        String xpath = "//a[contains(text(),'" + fileName + "')]";
+        WebElement fileElement = driver.findElement(By.xpath(xpath));
+        Assert.assertTrue("Package name not as expected", fileElement.isDisplayed());
+        fileElement.click();
+    }
+
+    public void assertPackageSender(String expectedSender) {
+        String xpath = "//span[contains(text(),'" + expectedSender + "')]";
+        Assert.assertTrue("Package sender not as expected",
+                actions.isElementPresent(xpath));
+    }
+
+    public void clickReturnToParentPackage() {
+        String xpath = "//span[contains(.,'Return to Parent Package')]";
+        actions.clickElement(xpath);
+    }
+
+    public void clickDelete() {
+        String xpath = "//span[contains(.,'Delete')]";
+        actions.clickElement(xpath);
+    }
+
+    public void assertDeletionConfirmation(String expectedMessage) {
+        String xpath = "//div[@class='statuscontent'][contains(text(),'" + expectedMessage + "')]";
+        Assert.assertTrue("Deletion confirmation message not shown",
+                actions.isElementPresent(xpath));
+    }
+
 }

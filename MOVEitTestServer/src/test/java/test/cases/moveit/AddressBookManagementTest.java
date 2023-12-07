@@ -27,7 +27,6 @@ public class AddressBookManagementTest extends BaseTest {
         contactsPage.searchForContact(NEW_CONTACT_NAME);
         contactsPage.waitForContactVisible(NEW_CONTACT_NAME);
         Assert.assertTrue(CONTACT_NOT_FOUND_ERROR, contactsPage.isContactVisibleOnPage(NEW_CONTACT_NAME));
-
     }
 
 }
