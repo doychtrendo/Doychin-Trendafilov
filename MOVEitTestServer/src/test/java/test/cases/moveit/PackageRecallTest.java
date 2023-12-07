@@ -33,6 +33,7 @@ public class PackageRecallTest extends BaseTest {
         packagesPage.selectPackage(PACKAGE_BODY_SUBJECT);
         packagesPage.recallSelectedPackage();
         packagesPage.verifyRecalledPackageStatus();
+        loginPage.logout();
     }
 
 }

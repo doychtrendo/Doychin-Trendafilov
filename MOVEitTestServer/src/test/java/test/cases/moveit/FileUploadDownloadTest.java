@@ -30,6 +30,7 @@ public class FileUploadDownloadTest extends BaseTest {
         homeFolderPage.clickDownloadFile();
         homeFolderPage.waitForValidationMessage();
         homeFolderPage.assertValidationMessageDisplayed();
+        loginPage.logout();
     }
 
 }
