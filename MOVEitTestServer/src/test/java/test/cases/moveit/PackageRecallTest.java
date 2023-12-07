@@ -10,7 +10,7 @@ public class PackageRecallTest extends BaseTest {
 
     @Test
     //MOV-5 [MOVEit-PackageHandling] Successfully Recall a Sent Package
-    public void testSendAndRecallPackage() {
+    public void when_PackageSentAndRecalled_expect_PackageRecalledSuccessfully() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.navigateToPage();
         loginPage.login(USER_NAME, USER_PASSWORD);

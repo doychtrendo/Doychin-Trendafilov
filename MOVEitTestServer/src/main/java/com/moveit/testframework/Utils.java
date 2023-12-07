@@ -14,12 +14,12 @@ public class Utils {
 
     public static WebDriver getWebDriver() {
         LOGGER.info("Initializing WebDriver");
-        return CustomWebDriverManager.CustomWebDriverManagerEnum.INSTANCE.getDriver();
+        return CustomWebDriverManager.getDriver();
     }
 
     public static void tearDownWebDriver() {
         LOGGER.info("Quitting WebDriver");
-        CustomWebDriverManager.CustomWebDriverManagerEnum.INSTANCE.quitDriver();
+        CustomWebDriverManager.quitDriver();
     }
 
     public static String getUIMappingByKey(String key) {

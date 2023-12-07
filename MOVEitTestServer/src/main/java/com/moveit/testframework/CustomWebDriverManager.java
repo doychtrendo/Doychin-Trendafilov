@@ -2,32 +2,26 @@ package com.moveit.testframework;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class CustomWebDriverManager {
+    private static WebDriver driver;
 
-    public enum CustomWebDriverManagerEnum {
-        INSTANCE;
-        private WebDriver driver = setupBrowser();
+    public static WebDriver getDriver() {
+        if (driver == null) {
+            FirefoxOptions options = new FirefoxOptions();
+            options.addArguments("--headless");
 
-        public void quitDriver() {
-            if (driver != null) {
-                driver.quit();
-                driver = null;
-            }
-        }
-
-        public WebDriver getDriver() {
-            if (driver == null) {
-                driver = setupBrowser();
-            }
-            return driver;
-        }
-
-        private WebDriver setupBrowser() {
-            WebDriver driver = new FirefoxDriver();
+            driver = new FirefoxDriver(options);
             driver.manage().window().maximize();
-            this.driver = driver;
-            return driver;
+        }
+        return driver;
+    }
+
+    public static void quitDriver() {
+        if (driver != null) {
+            driver.quit();
+            driver = null;
         }
     }
 }

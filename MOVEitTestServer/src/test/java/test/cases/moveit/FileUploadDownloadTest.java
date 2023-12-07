@@ -10,7 +10,7 @@ public class FileUploadDownloadTest extends BaseTest {
 
     @Test
     //MOV-7 [MOVEit-FileManagement] Successful File Upload and Download
-    public void testFileUploadDownload() {
+    public void when_FileUploadedAndDownloaded_expect_FileExistsAndIsDownloadable() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.navigateToPage();
         loginPage.login(USER_NAME, USER_PASSWORD);

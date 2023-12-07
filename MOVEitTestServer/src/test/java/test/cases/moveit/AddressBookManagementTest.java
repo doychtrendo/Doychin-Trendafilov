@@ -11,7 +11,7 @@ public class AddressBookManagementTest extends BaseTest {
 
     @Test
     //MOV-6 [MOVEit-Contacts] Successfully Add Contact to Contacts
-    public void testAddNewContact() {
+    public void when_NewContactAdded_expect_ContactIsVisibleInAddressBook() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.navigateToPage();
         loginPage.login(USER_NAME, USER_PASSWORD);

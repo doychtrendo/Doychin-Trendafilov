@@ -6,7 +6,6 @@ import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
 
 public abstract class BaseTest {
-
     protected static WebDriver driver;
 
     @BeforeClass
@@ -16,9 +15,7 @@ public abstract class BaseTest {
 
     @AfterClass
     public static void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
+        Utils.tearDownWebDriver();
     }
-
 }
+

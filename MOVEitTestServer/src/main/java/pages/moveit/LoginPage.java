@@ -30,11 +30,6 @@ public class LoginPage extends BasePage {
                 currentUrl.contains(Utils.getConfigPropertyByKey(LOGIN_PAGE)));
     }
 
-    public void assertLoginPageMessage() {
-        actions.assertElementPresent(Constants.LOGIN_SECURE_MESSAGE);
-    }
-
-
     public void assertPasswordFieldVisible() {
         actions.assertElementPresent(LOGIN_PASSWORD_FIELD_PATH);
     }

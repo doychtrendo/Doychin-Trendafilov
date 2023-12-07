@@ -10,7 +10,7 @@ public class SendPackageTest extends BaseTest {
 
     @Test
     //MOV-4 [MOVEit-PackageHandling] Successfully Send Package with File Attachment
-    public void testSendPackageWithAttachment() {
+    public void when_PackageWithAttachmentSent_expect_PackageDeliveredSuccessfully() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.navigateToPage();
         loginPage.login(USER_NAME, USER_PASSWORD);

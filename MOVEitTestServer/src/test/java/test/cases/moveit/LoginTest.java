@@ -1,26 +1,24 @@
 package test.cases.moveit;
 
 import com.moveit.testframework.Utils;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import pages.moveit.LoginPage;
 
 import static com.moveit.testframework.utils.Constants.*;
 
 public class LoginTest extends BaseTest {
 
-    private LoginPage loginPage;
-
-    @BeforeEach
-    public void setUpTest() {
+    @BeforeClass
+    public static void setUpTest() {
         driver = Utils.getWebDriver();
-        loginPage = new LoginPage(driver);
+        LoginPage loginPage = new LoginPage(driver);
         loginPage.navigateToPage();
     }
 
-    @AfterEach
-    public void tearDownTest() {
+    @AfterClass
+    public static void tearDownTest() {
         if (driver != null) {
             driver.quit();
         }
@@ -28,7 +26,7 @@ public class LoginTest extends BaseTest {
 
     @Test
     //MOV-1 [MOVEit-Auth] Verify successful login with valid credentials
-    public void testSuccessfulLogin() {
+    public void when_ValidCredentialsProvided_expect_SuccessfulLogin() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.navigateToPage();
         loginPage.assertPageNavigated();
@@ -40,7 +38,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    public void testLoginWithInvalidCredentials() {
+    public void when_InvalidCredentialsProvided_expect_LoginErrorDisplayed() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.navigateToPage();
         loginPage.login(INVALID_USER_NAME, INVALID_USER_PASSWORD);
@@ -48,7 +46,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    public void testLogoutFunctionality() {
+    public void when_UserLogsOut_expect_RedirectedToLoginPage() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.navigateToPage();
         loginPage.login(USER_NAME, USER_PASSWORD);
