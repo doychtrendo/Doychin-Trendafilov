@@ -1,6 +1,5 @@
 package test.cases.moveit;
 
-import com.moveit.testframework.utils.Constants;
 import org.junit.Test;
 import pages.moveit.LoginPage;
 import pages.moveit.PackagesPage;
@@ -14,25 +13,24 @@ public class PackageRecallTest extends BaseTest {
     public void testSendAndRecallPackage() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.navigateToPage();
-        loginPage.login(Constants.USER_NAME, Constants.USER_PASSWORD);
+        loginPage.login(USER_NAME, USER_PASSWORD);
 
         PackagesPage packagesPage = new PackagesPage(driver);
-
         packagesPage.clickPackagesButton();
         packagesPage.clickSendPackage();
         packagesPage.enterRecipient(PACKAGE_RECIPIENT);
         packagesPage.enterSubject(PACKAGE_SUBJECT);
         packagesPage.enterBody(PACKAGE_BODY);
         packagesPage.upload();
-        packagesPage.uploadTestFile("surprise.docx");
+        packagesPage.uploadTestFile(FILE_NAME);
         packagesPage.clickUpload();
         packagesPage.waitForUploadToComplete();
-        packagesPage.verifyUploadedPackageVisible("surprise.docx");
+        packagesPage.verifyUploadedPackageVisible(FILE_NAME);
         packagesPage.clickClose();
         packagesPage.clickSend();
         packagesPage.verifyPackageSentConfirmationDisplayed();
         packagesPage.navigateToSentPackages();
-        packagesPage.selectPackage("test package for you");
+        packagesPage.selectPackage(PACKAGE_BODY_SUBJECT);
         packagesPage.recallSelectedPackage();
         packagesPage.verifyRecalledPackageStatus();
     }

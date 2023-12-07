@@ -26,7 +26,7 @@ public class LoginPage extends BasePage {
     @Override
     public void assertPageNavigated() {
         String currentUrl = driver.getCurrentUrl();
-        Assert.assertTrue("Landed URL is not as expected. Actual URL: " + currentUrl + ". Expected URL: " + Utils.getConfigPropertyByKey(LOGIN_PAGE),
+        Assert.assertTrue(URL_ERROR_MESSAGE + currentUrl + EXPECTED_URL_MESSAGE + Utils.getConfigPropertyByKey(LOGIN_PAGE),
                 currentUrl.contains(Utils.getConfigPropertyByKey(LOGIN_PAGE)));
     }
 
@@ -49,7 +49,6 @@ public class LoginPage extends BasePage {
 
     public void assertLoginErrorMessage() {
         actions.assertElementPresent(Constants.LOGIN_ERROR_MESSAGE);
-
     }
 
 }

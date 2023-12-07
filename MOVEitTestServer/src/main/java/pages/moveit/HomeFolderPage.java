@@ -75,11 +75,8 @@ public class HomeFolderPage extends BasePage {
     public void uploadFile(String fileName) {
         File file = new File(TESTDATA_PATH + fileName);
         String absolutePath = file.getAbsolutePath();
-
         deleteFile(fileName);
-
         clickUploadFilesButton();
-
         WebElement fileInput = driver.findElement(By.className(FILE_SELECTOR));
         fileInput.sendKeys(absolutePath);
     }

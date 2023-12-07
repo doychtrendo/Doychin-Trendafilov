@@ -1,6 +1,5 @@
 package test.cases.moveit;
 
-import com.moveit.testframework.utils.Constants;
 import org.junit.Assert;
 import org.junit.Test;
 import pages.moveit.ContactsPage;
@@ -15,10 +14,9 @@ public class AddressBookManagementTest extends BaseTest {
     public void testAddNewContact() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.navigateToPage();
-        loginPage.login(Constants.USER_NAME, Constants.USER_PASSWORD);
+        loginPage.login(USER_NAME, USER_PASSWORD);
 
         ContactsPage contactsPage = new ContactsPage(driver);
-
         contactsPage.openContacts();
         contactsPage.clickAddContact();
         contactsPage.enterFullName(NEW_CONTACT_NAME);

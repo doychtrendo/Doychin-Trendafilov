@@ -49,9 +49,25 @@ public class Constants {
     public static final String FILE_SPAN = "//span[contains(.,'%s')]";
     public static final String DELETE_BUTTON = "//span[contains(.,'Delete')]";
     public static final String DELETE_YES_BUTTON = "//span[contains(.,'Yes')]";
-
     public static final String VALIDATION_MESSAGE = "homeFolder.validationMessage";
-
     public static final long UPLOAD_COMPLETION_WAIT_TIME = 10000;
-
+    public static final String URL_ERROR_MESSAGE = "Landed URL is not as expected. Actual URL: ";
+    public static final String EXPECTED_URL_MESSAGE = "'. Expected URL: '";
+    public static final String FILE_NAME = "surprise.docx";
+    public static final String PACKAGE_TITLE_XPATH = "//div[@title='%s'][contains(.,'%s')]";
+    public static final String PACKAGE_SENT_CONFIRMATION_XPATH = "//div[contains(@class,'statuscontent')]";
+    public static final String FILE_SELECTOR_INPUT_CLASS = "file-selector-input";
+    public static final String RECALL_STATUS_XPATH = "//div[@class='statuscontent'][contains(.,'Recalled package OK.')]";
+    public static final String SENT_LINK_XPATH = "//a[contains(.,'Sent')]";
+    public static final String PACKAGE_NAME_LINK_XPATH = "//a[contains(text(), '%s')]";
+    public static final String RECALL_BUTTON_XPATH = "//span[contains(.,'Recall')]";
+    public static final String CONFIRM_RECALL_XPATH = "//span[contains(.,'Confirm Recall of Package')]";
+    public static final String CONFIRM_YES_XPATH = "//span[contains(.,'Yes')]";
+    public static final String UPLOAD_NOT_VISIBLE_MSG = "Uploaded package %s is not visible.";
+    public static final String PACKAGE_SENT_CONFIRMATION_NOT_FOUND_MSG = "Package sent confirmation message not found.";
+    public static final String RECALL_STATUS_NOT_FOUND_MSG = "Recall status message not found.";
+    public static final String PACKAGE_BODY_SUBJECT = "test package for you";
+    public static final String SEARCH_FIELD_XPATH = "//input[contains(@placeholder,'Search')]";
+    public static final String CONTACT_VISIBILITY_XPATH = "//td[@class='textsmall'][contains(.,'%s')]";
 }
+

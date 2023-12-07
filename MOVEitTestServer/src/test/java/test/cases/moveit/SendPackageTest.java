@@ -1,6 +1,5 @@
 package test.cases.moveit;
 
-import com.moveit.testframework.utils.Constants;
 import org.junit.Test;
 import pages.moveit.LoginPage;
 import pages.moveit.PackagesPage;
@@ -14,20 +13,19 @@ public class SendPackageTest extends BaseTest {
     public void testSendPackageWithAttachment() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.navigateToPage();
-        loginPage.login(Constants.USER_NAME, Constants.USER_PASSWORD);
+        loginPage.login(USER_NAME, USER_PASSWORD);
 
         PackagesPage packagesPage = new PackagesPage(driver);
-
         packagesPage.clickPackagesButton();
         packagesPage.clickSendPackage();
         packagesPage.enterRecipient(PACKAGE_RECIPIENT);
         packagesPage.enterSubject(PACKAGE_SUBJECT);
         packagesPage.enterBody(PACKAGE_BODY);
         packagesPage.upload();
-        packagesPage.uploadTestFile("surprise.docx");
+        packagesPage.uploadTestFile(FILE_NAME);
         packagesPage.clickUpload();
         packagesPage.waitForUploadToComplete();
-        packagesPage.verifyPackageUploadedSuccessfully("surprise.docx");
+        packagesPage.verifyPackageUploadedSuccessfully(FILE_NAME);
         packagesPage.clickClose();
         packagesPage.clickSend();
         packagesPage.verifyPackageSentConfirmationDisplayed();

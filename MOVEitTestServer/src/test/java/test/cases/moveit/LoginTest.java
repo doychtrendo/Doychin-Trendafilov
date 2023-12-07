@@ -1,11 +1,12 @@
 package test.cases.moveit;
 
 import com.moveit.testframework.Utils;
-import com.moveit.testframework.utils.Constants;
 import org.junit.Test;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import pages.moveit.LoginPage;
+
+import static com.moveit.testframework.utils.Constants.*;
 
 public class LoginTest extends BaseTest {
 
@@ -34,7 +35,7 @@ public class LoginTest extends BaseTest {
         loginPage.assertPasswordFieldVisible();
         loginPage.assertUsernameFieldVisible();
         loginPage.assertLoginButtonVisible();
-        loginPage.login(Constants.USER_NAME, Constants.USER_PASSWORD);
+        loginPage.login(USER_NAME, USER_PASSWORD);
         loginPage.logout();
     }
 
@@ -42,7 +43,7 @@ public class LoginTest extends BaseTest {
     public void testLoginWithInvalidCredentials() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.navigateToPage();
-        loginPage.login(Constants.INVALID_USER_NAME, Constants.INVALID_USER_PASSWORD);
+        loginPage.login(INVALID_USER_NAME, INVALID_USER_PASSWORD);
         loginPage.assertLoginErrorMessage();
     }
 
@@ -50,7 +51,7 @@ public class LoginTest extends BaseTest {
     public void testLogoutFunctionality() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.navigateToPage();
-        loginPage.login(Constants.USER_NAME, Constants.USER_PASSWORD);
+        loginPage.login(USER_NAME, USER_PASSWORD);
         loginPage.logout();
     }
 

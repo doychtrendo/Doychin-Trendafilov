@@ -14,8 +14,6 @@ import static com.moveit.testframework.utils.Constants.*;
 
 public class ContactsPage extends BasePage {
 
-    private static final String SEARCH_FIELD_XPATH = "//input[contains(@placeholder,'Search')]";
-
     public ContactsPage(WebDriver driver) {
         super(driver, Constants.HOME_PAGE);
     }
@@ -51,7 +49,7 @@ public class ContactsPage extends BasePage {
     public boolean isContactVisibleOnPage(String contactName) {
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            String xpathExpression = "//td[@class='textsmall'][contains(.,'" + contactName + "')]";
+            String xpathExpression = String.format(Constants.CONTACT_VISIBILITY_XPATH, contactName);
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpathExpression)));
             return true;
         } catch (Exception e) {
@@ -61,7 +59,7 @@ public class ContactsPage extends BasePage {
 
     public void waitForContactVisible(String contactName) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        String xpathExpression = "//td[@class='textsmall'][contains(.,'" + contactName + "')]";
+        String xpathExpression = String.format(Constants.CONTACT_VISIBILITY_XPATH, contactName);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpathExpression)));
     }
 

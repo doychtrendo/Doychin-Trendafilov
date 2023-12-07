@@ -53,53 +53,56 @@ public class PackagesPage extends BasePage {
     }
 
     public void verifyPackageUploadedSuccessfully(String fileName) {
-        boolean isUploaded = actions.isElementPresent("//div[@title='" + fileName + "'][contains(.,'" + fileName + "')]");
-        Assert.assertTrue("Uploaded package " + fileName + " is not visible.", isUploaded);
+        String xpath = String.format(Constants.PACKAGE_TITLE_XPATH, fileName, fileName);
+        boolean isUploaded = actions.isElementPresent(xpath);
+        Assert.assertTrue(String.format(Constants.UPLOAD_NOT_VISIBLE_MSG, fileName), isUploaded);
     }
 
     public void verifyPackageSentConfirmationDisplayed() {
-        boolean isConfirmationDisplayed = actions.isElementPresent("//div[contains(@class,'statuscontent')]");
-        Assert.assertTrue("Package sent confirmation message not found.", isConfirmationDisplayed);
+        boolean isConfirmationDisplayed = actions.isElementPresent(Constants.PACKAGE_SENT_CONFIRMATION_XPATH);
+        Assert.assertTrue(Constants.PACKAGE_SENT_CONFIRMATION_NOT_FOUND_MSG, isConfirmationDisplayed);
     }
 
     public void uploadTestFile(String fileName) {
-        File file = new File("src/test/resources/testdata/" + fileName);
+        File file = new File(TESTDATA_PATH + fileName);
         String absolutePath = file.getAbsolutePath();
 
-        WebElement fileInput = driver.findElement(By.className("file-selector-input"));
+        WebElement fileInput = driver.findElement(By.className(Constants.FILE_SELECTOR_INPUT_CLASS));
         fileInput.sendKeys(absolutePath);
     }
 
     public void waitForUploadToComplete() {
         try {
-            Thread.sleep(10000);
+            Thread.sleep(UPLOAD_COMPLETION_WAIT_TIME);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
     public void verifyUploadedPackageVisible(String fileName) {
-        Assert.assertTrue("Uploaded package is not visible.",
-                actions.isElementPresent("//div[@title='" + fileName + "'][contains(.,'" + fileName + "')]"));
+        String xpath = String.format(Constants.PACKAGE_TITLE_XPATH, fileName, fileName);
+        Assert.assertTrue(String.format(Constants.UPLOAD_NOT_VISIBLE_MSG, fileName),
+                actions.isElementPresent(xpath));
     }
 
     public void verifyRecalledPackageStatus() {
-        Assert.assertTrue("Recall status message not found.",
-                actions.isElementPresent("//div[@class='statuscontent'][contains(.,'Recalled package OK.')]"));
+        Assert.assertTrue(Constants.RECALL_STATUS_NOT_FOUND_MSG,
+                actions.isElementPresent(Constants.RECALL_STATUS_XPATH));
     }
 
     public void navigateToSentPackages() {
-        actions.clickElement("//a[contains(.,'Sent')]");
+        actions.clickElement(Constants.SENT_LINK_XPATH);
     }
 
     public void selectPackage(String packageName) {
-        actions.clickElement("//a[contains(text(), '" + packageName + "')]");
+        String xpath = String.format(Constants.PACKAGE_NAME_LINK_XPATH, packageName);
+        actions.clickElement(xpath);
     }
 
     public void recallSelectedPackage() {
-        actions.clickElement("//span[contains(.,'Recall')]");
-        actions.waitForElementVisible("//span[contains(.,'Confirm Recall of Package')]");
-        actions.clickElement("//span[contains(.,'Yes')]");
+        actions.clickElement(Constants.RECALL_BUTTON_XPATH);
+        actions.waitForElementVisible(Constants.CONFIRM_RECALL_XPATH);
+        actions.clickElement(Constants.CONFIRM_YES_XPATH);
     }
 
 }

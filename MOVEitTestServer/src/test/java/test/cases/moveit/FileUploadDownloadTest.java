@@ -1,9 +1,10 @@
 package test.cases.moveit;
 
-import com.moveit.testframework.utils.Constants;
 import org.junit.Test;
 import pages.moveit.HomeFolderPage;
 import pages.moveit.LoginPage;
+
+import static com.moveit.testframework.utils.Constants.*;
 
 public class FileUploadDownloadTest extends BaseTest {
 
@@ -11,12 +12,11 @@ public class FileUploadDownloadTest extends BaseTest {
     public void testFileUploadDownload() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.navigateToPage();
-        loginPage.login(Constants.USER_NAME, Constants.USER_PASSWORD);
+        loginPage.login(USER_NAME, USER_PASSWORD);
 
         HomeFolderPage homeFolderPage = new HomeFolderPage(driver);
         homeFolderPage.clickHomeFolder();
-
-        String fileName = "surprise.docx";
+        String fileName = FILE_NAME;
         homeFolderPage.checkFileExists(fileName);
         homeFolderPage.deleteFile(fileName);
         homeFolderPage.uploadFile(fileName);
